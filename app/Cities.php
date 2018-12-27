@@ -18,11 +18,16 @@ class Cities extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'city_id';
+    protected $primaryKey = 'id';
 
     public function companies()
     {
-        return $this->hasMany('App\Companies');
+        return $this->hasMany('App\Companies','city_id');
+    }
+
+    public function canDelete()
+    {
+        return !count($this->companies) > 0;
     }
 
 }

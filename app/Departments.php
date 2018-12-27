@@ -18,5 +18,9 @@ class Departments extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'department_id';
+    protected $primaryKey = 'id';
+
+    public function companies(){
+        return $this->belongsTo('App\Cities','company_id');
+    }
 }

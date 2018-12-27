@@ -14,14 +14,14 @@ class CompaniesManageV1 extends Migration
     public function up()
     {
         Schema::create('cities', function (Blueprint $table) {
-            $table->increments('city_id')->index();
+            $table->increments('id')->index();
             $table->string('city_name')->nullable();
             $table->string('zip_code')->nullable();
             $table->timestamps();
         });
 
         Schema::create('companies', function (Blueprint $table) {
-            $table->increments('company_id')->index();
+            $table->increments('id')->index();
             $table->string('company_name')->nullable();
             $table->integer('city_id')->nullable();
             $table->string('logo_url')->nullable();
@@ -29,7 +29,7 @@ class CompaniesManageV1 extends Migration
         });
 
         Schema::create('departments', function (Blueprint $table) {
-            $table->increments('department_id')->index();
+            $table->increments('id')->index();
             $table->string('department_name')->nullable();
             $table->integer('company_id')->index();
             $table->integer('manage_id')->index();

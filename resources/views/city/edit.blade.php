@@ -1,0 +1,1 @@
+{!! Form::model($city, ['route' => ['city.update', $city]]) !!}

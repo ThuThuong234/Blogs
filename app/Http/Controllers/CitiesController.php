@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Cities;
+use App\Companies;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CitiesController extends Controller
 {
@@ -12,12 +14,18 @@ class CitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $name = $request->input('city_name');
 
-        return view('city/index');
+        $cities = Cities::select('cities.*');
+
+        if (!empty($name)) {
+            $cities = Cities::where('city_name', 'LIKE', '%' . $name . '%');
+        }
+        $cities = $cities->paginate(3);
+        return view('city.index', compact('cities'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +39,7 @@ class CitiesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,7 +50,7 @@ class CitiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cities  $cities
+     * @param  \App\Cities $cities
      * @return \Illuminate\Http\Response
      */
     public function show(Cities $cities)
@@ -52,7 +60,7 @@ class CitiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cities  $cities
+     * @param  \App\Cities $cities
      * @return \Illuminate\Http\Response
      */
     public function edit(Cities $cities)
@@ -63,8 +71,8 @@ class CitiesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cities  $cities
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Cities $cities
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Cities $cities)
@@ -75,11 +83,11 @@ class CitiesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cities  $cities
+     * @param  \App\Cities $cities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cities $cities)
+    public function destroy($id)
     {
-        //
+
     }
 }
