@@ -39,10 +39,10 @@
                         <td>{{ $city->id }}</td>
                         <td>{{ $city->city_name }}</td>
                         <td>{{ $city->zip_code }}</td>
-                        <td><i class="fa fa-edit fa-fw" onclick=""></i></td>
+                        <td><a class="fa fa-edit fa-fw" href="{{ url('/cities/' . $city->id . '/edit') }}"></a></td>
                         <td>
                             @if ($city->canDelete())
-                                <i class="fa fa-trash" onclick=""></i>
+                                <a class="fa fa-trash" ></a>
                             @endif
                         </td>
                     </tr>

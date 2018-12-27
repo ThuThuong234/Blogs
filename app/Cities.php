@@ -11,6 +11,10 @@ class Cities extends Model
      *
      * @var string
      */
+    protected $fillable = [
+        'city_name',
+        'zip_code',
+    ];
     protected $table = 'cities';
 
     /**

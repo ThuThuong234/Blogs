@@ -63,9 +63,11 @@ class CitiesController extends Controller
      * @param  \App\Cities $cities
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cities $cities)
+    public function edit($id)
     {
-        //
+        $city = Cities::findOrFail($id);
+
+        return view('city.edit', compact('city'));
     }
 
     /**
@@ -75,9 +77,13 @@ class CitiesController extends Controller
      * @param  \App\Cities $cities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cities $cities)
+    public function update(Request $request, $id)
     {
-        //
+//        dd($request);
+        $data = $request->all();
+        $cities = Cities::findOrFail($id);
+        $cities->update($data);
+        return redirect('cities');
     }
 
     /**
