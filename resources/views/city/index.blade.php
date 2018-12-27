@@ -16,8 +16,9 @@
                 <div class="col-sm-6"></div>
                 <div class="col-sm-4">
                     <input onchange="this.form.submit()" type="text" class="form-control" name="city_name" placeholder="Nhập để tìm kiếm... "></div>
+                {!! Form::close() !!}
                 <div class="col-sm-2">
-                    <button class="btn btn-primary">Create new</button>
+                    <button class="btn btn-primary" onclick="window.location='cities/create'">Create new</button>
                 </div>
             </div>
         </div>
@@ -42,7 +43,7 @@
                         <td><a class="fa fa-edit fa-fw" href="{{ url('/cities/' . $city->id . '/edit') }}"></a></td>
                         <td>
                             @if ($city->canDelete())
-                                <a class="fa fa-trash" ></a>
+                                <a class="fa fa-trash" data-toggle="modal" data-target="#confirmDelete"></a>
                             @endif
                         </td>
                     </tr>
@@ -51,10 +52,31 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-12">
-            {!! $cities->appends(['city_name' => Request::get('city_name')])->render() !!}
+        <div class="col-12 text-center">
+            {{ $cities->appends(['city_name' => Request::get('city_name')])->render()}}
         </div>
-        {!! Form::close() !!}
 
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

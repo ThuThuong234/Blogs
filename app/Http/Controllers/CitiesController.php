@@ -33,7 +33,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('city.create');
     }
 
     /**
@@ -44,7 +44,11 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+        $data['city_name'] = $request['city_name'];
+        $data['zip_code'] = $request['zip_code'];
+        DB::table('cities')->insert($data);
+        return redirect('cities');
     }
 
     /**
@@ -79,8 +83,9 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        dd($request);
         $data = $request->all();
+
+        dd($data);
         $cities = Cities::findOrFail($id);
         $cities->update($data);
         return redirect('cities');
