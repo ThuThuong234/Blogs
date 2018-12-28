@@ -15,10 +15,11 @@
                 {!! Form::open(['url' => 'cities', 'method' => 'get', 'role' => 'search']) !!}
                 <div class="col-sm-6"></div>
                 <div class="col-sm-4">
-                    <input onchange="this.form.submit()" type="text" class="form-control" name="city_name" placeholder="Nhập để tìm kiếm... "></div>
+                    <input onchange="this.form.submit()" type="text" class="form-control" name="city_name"
+                           placeholder="Nhập để tìm kiếm... "></div>
                 {!! Form::close() !!}
                 <div class="col-sm-2">
-                    <button class="btn btn-primary" onclick="window.location='cities/create'">Create new</button>
+                    <a class="btn btn-primary" href="{{url('cities/create')}}">Create new</a>
                 </div>
             </div>
         </div>
@@ -43,7 +44,15 @@
                         <td><a class="fa fa-edit fa-fw" href="{{ url('/cities/' . $city->id . '/edit') }}"></a></td>
                         <td>
                             @if ($city->canDelete())
-                                <a class="fa fa-trash" data-toggle="modal" data-target="#confirmDelete"></a>
+                                {!! Form::open([
+                                'method'=>'DELETE',
+                                'url' => ['/cities',  $city->id],
+                                'style' => 'display:inline',
+                                'id' => 'formDelete'
+                                ])!!}
+                                <a class="fa fa-trash" data-target="#confirmDelete"
+                                   data-toggle="modal" ></a>
+                                {!! Form::close() !!}
                             @endif
                         </td>
                     </tr>
@@ -60,23 +69,32 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    Are you sure?
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" id="delete-court-button">Delete</button>
+                    </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $('#delete-court-button').on('click', function () {
+            $('#formDelete').submit();
+        });
+    </script>
 @endsection

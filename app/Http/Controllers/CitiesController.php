@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cities;
 use App\Companies;
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,6 +27,7 @@ class CitiesController extends Controller
         $cities = $cities->paginate(3);
         return view('city.index', compact('cities'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +46,16 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
+        $validator = Validator::make($request->all(), [
+            'city_name' => 'required',
+            'zip_code' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('cities/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
         $data['city_name'] = $request['city_name'];
         $data['zip_code'] = $request['zip_code'];
         DB::table('cities')->insert($data);
@@ -83,10 +94,20 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        dd($data);
         $cities = Cities::findOrFail($id);
+        $validator = Validator::make($request->all(), [
+            'city_name' => 'required',
+            'zip_code' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('cities/'.$id.'/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $data['city_name'] = $request['city_name'];
+        $data['zip_code'] = $request['zip_code'];
         $cities->update($data);
         return redirect('cities');
     }
@@ -99,6 +120,8 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-
+        $city = Cities::findOrFail($id);
+        $city->delete();
+        return redirect('cities');
     }
 }

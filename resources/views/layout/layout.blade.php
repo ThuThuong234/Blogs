@@ -121,4 +121,6 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{asset('sb-admin/dist/js/sb-admin-2.js') }}"></script>
+
+@yield('scripts')
 </html>
