@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departments extends Model
 {
+    protected $fillable = [
+        'department_name',
+        'company_id',
+        'manage_id',
+    ];
     /**
      * The database table used by the model.
      *

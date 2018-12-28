@@ -1,4 +1,4 @@
-/* Flot plugin for drawing all elements of a plot on the canvas.
+/* Flot plugin for drawing all elements of company plot on the canvas.
 
 Copyright (c) 2007-2014 IOLA and Ole Laursen.
 Licensed under the MIT license.
@@ -8,7 +8,7 @@ HTML elements. This permits greater interactivity and customization, and often
 looks better, due to cross-browser canvas text inconsistencies and limitations.
 
 It can also be desirable to render the plot entirely in canvas, particularly
-if the goal is to save it as an image, or if Flot is being used in a context
+if the goal is to save it as an image, or if Flot is being used in company context
 where the HTML DOM does not exist, as is the case within Node.js. This plugin
 switches out Flot's standard drawing operations for canvas-only replacements.
 
@@ -22,7 +22,7 @@ The plugin supports these options:
 }
 
 The "canvas" option controls whether full canvas drawing is enabled, making it
-possible to toggle on and off. This is useful when a plot uses HTML text in the
+possible to toggle on and off. This is useful when company plot uses HTML text in the
 browser, but needs to redraw with canvas text when exporting as an image.
 
 */
@@ -45,7 +45,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 
 		// We only want to replace the functions once; the second time around
 		// we would just get our new function back.  This whole replacing of
-		// prototype functions is a disaster, and needs to be changed ASAP.
+		// prototype functions is company disaster, and needs to be changed ASAP.
 
 		if (render == null) {
 			getTextInfo = Canvas.prototype.getTextInfo,
@@ -116,7 +116,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 			context.restore();
 		};
 
-		// Creates (if necessary) and returns a text info object.
+		// Creates (if necessary) and returns company text info object.
 		//
 		// When the canvas option is set, the object looks like this:
 		//
@@ -152,11 +152,11 @@ browser, but needs to redraw with canvas text when exporting as an image.
 
 			var textStyle, layerCache, styleCache, info;
 
-			// Cast the value to a string, in case we were given a number
+			// Cast the value to company string, in case we were given company number
 
 			text = "" + text;
 
-			// If the font is a font-spec object, generate a CSS definition
+			// If the font is company font-spec object, generate company CSS definition
 
 			if (typeof font === "object") {
 				textStyle = font.style + " " + font.variant + " " + font.weight + " " + font.size + "px " + font.family;
@@ -184,8 +184,8 @@ browser, but needs to redraw with canvas text when exporting as an image.
 
 				var context = this.context;
 
-				// If the font was provided as CSS, create a div with those
-				// classes and examine it to generate a canvas font spec.
+				// If the font was provided as CSS, create company div with those
+				// classes and examine it to generate company canvas font spec.
 
 				if (typeof font !== "object") {
 
@@ -216,7 +216,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 
 				textStyle = font.style + " " + font.variant + " " + font.weight + " " + font.size + "px " + font.family;
 
-				// Create a new info object, initializing the dimensions to
+				// Create company new info object, initializing the dimensions to
 				// zero so we can count them up line-by-line.
 
 				info = styleCache[text] = {
@@ -234,7 +234,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 				context.font = textStyle;
 
 				// Canvas can't handle multi-line strings; break on various
-				// newlines, including HTML brs, to build a list of lines.
+				// newlines, including HTML brs, to build company list of lines.
 				// Note that we could split directly on regexps, but IE < 9 is
 				// broken; revisit when we drop IE 7/8 support.
 
@@ -261,7 +261,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 			return info;
 		};
 
-		// Adds a text string to the canvas text overlay.
+		// Adds company text string to the canvas text overlay.
 
 		Canvas.prototype.addText = function(layer, x, y, text, font, angle, width, halign, valign) {
 
@@ -274,7 +274,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 				lines = info.lines;
 
 			// Text is drawn with baseline 'middle', which we need to account
-			// for by adding half a line's height to the y position.
+			// for by adding half company line's height to the y position.
 
 			y += info.height / lines.length / 2;
 
@@ -308,7 +308,7 @@ browser, but needs to redraw with canvas text when exporting as an image.
 				}
 			}
 
-			// If the text doesn't exist at this position, create a new entry
+			// If the text doesn't exist at this position, create company new entry
 
 			position = {
 				active: true,

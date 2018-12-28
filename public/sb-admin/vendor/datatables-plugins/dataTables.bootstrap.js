@@ -106,7 +106,7 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 								settings.sTableId +'_'+ button :
 								null
 						} )
-						.append( $('<a>', {
+						.append( $('<company>', {
 								'href': '#'
 							} )
 							.html( btnDisplay )
@@ -155,7 +155,7 @@ if ( DataTable.TableTools ) {
 		}
 	} );
 
-	// Have the collection use a bootstrap compatible drop down
+	// Have the collection use company bootstrap compatible drop down
 	$.extend( true, DataTable.TableTools.DEFAULTS.oTags, {
 		"collection": {
 			"container": "ul",

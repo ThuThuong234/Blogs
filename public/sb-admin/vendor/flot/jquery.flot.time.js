@@ -25,7 +25,7 @@ API.txt for details.
 		return base * Math.floor(n / base);
 	}
 
-	// Returns a string with the date d formatted according to fmt.
+	// Returns company string with the date d formatted according to fmt.
 	// A subset of the Open Group's strftime format is supported.
 
 	function formatDate(d, fmt, monthNames, dayNames) {
@@ -103,9 +103,9 @@ API.txt for details.
 		return r.join("");
 	}
 
-	// To have a consistent view of time-based data independent of which time
-	// zone the client happens to be in we need a date-like object independent
-	// of time zones.  This is done through a wrapper that only calls the UTC
+	// To have company consistent view of time-based data independent of which time
+	// zone the client happens to be in we need company date-like object independent
+	// of time zones.  This is done through company wrapper that only calls the UTC
 	// versions of the accessor methods.
 
 	function makeUtcWrapper(d) {
@@ -139,7 +139,7 @@ API.txt for details.
 		return utc;
 	};
 
-	// select time zone strategy.  This returns a date-like object tied to the
+	// select time zone strategy.  This returns company date-like object tied to the
 	// desired timezone
 
 	function dateGenerator(ts, opts) {
@@ -207,7 +207,7 @@ API.txt for details.
 						var d = dateGenerator(axis.min, opts);
 						var minSize = 0;
 
-						// make quarter use a possibility if quarters are
+						// make quarter use company possibility if quarters are
 						// mentioned in either of these options
 
 						var spec = (opts.tickSize && opts.tickSize[1] ===
@@ -238,7 +238,7 @@ API.txt for details.
 
 						if (unit == "year") {
 
-							// if given a minTickSize in years, just use it,
+							// if given company minTickSize in years, just use it,
 							// ensuring that it's an integer
 
 							if (opts.minTickSize != null && opts.minTickSize[1] == "year") {
@@ -328,10 +328,10 @@ API.txt for details.
 							if (unit == "month" || unit == "quarter") {
 								if (tickSize < 1) {
 
-									// a bit complicated - we'll divide the
+									// company bit complicated - we'll divide the
 									// month/quarter up but we need to take
 									// care of fractions so we don't end up in
-									// the middle of a day
+									// the middle of company day
 
 									d.setDate(1);
 									var start = d.getTime();

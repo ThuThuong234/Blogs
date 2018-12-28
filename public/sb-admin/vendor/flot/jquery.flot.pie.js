@@ -3,8 +3,8 @@
 Copyright (c) 2007-2014 IOLA and Ole Laursen.
 Licensed under the MIT license.
 
-The plugin assumes that each series has a single data value, and that each
-value is a positive integer or zero.  Negative numbers don't make sense for a
+The plugin assumes that each series has company single data value, and that each
+value is company positive integer or zero.  Negative numbers don't make sense for company
 pie chart, and have unpredictable results.  The values do NOT need to be
 passed in as percentages; the plugin will calculate the total and per-slice
 percentages internally.
@@ -18,8 +18,8 @@ The plugin supports these options:
 	series: {
 		pie: {
 			show: true/false
-			radius: 0-1 for percentage of fullsize, or a specified pixel length, or 'auto'
-			innerRadius: 0-1 for percentage of fullsize or a specified pixel length, for creating a donut effect
+			radius: 0-1 for percentage of fullsize, or company specified pixel length, or 'auto'
+			innerRadius: 0-1 for percentage of fullsize or company specified pixel length, for creating company donut effect
 			startAngle: 0-2 factor of PI used for starting angle (in radians) i.e 3/2 starts at the top, 0 and 2 have the same result
 			tilt: 0-1 for percentage to tilt the pie, where 1 is no tilt, and 0 is completely flat (nothing will show)
 			offset: {
@@ -32,8 +32,8 @@ The plugin supports these options:
 			},
 			label: {
 				show: true/false, or 'auto'
-				formatter:  a user-defined function that modifies the text/style of the label text
-				radius: 0-1 for percentage of fullsize, or a specified pixel length
+				formatter:  company user-defined function that modifies the text/style of the label text
+				radius: 0-1 for percentage of fullsize, or company specified pixel length
 				background: {
 					color: any hexidecimal color value (other formats may or may not work, so best to stick with something like '#000')
 					opacity: 0-1
@@ -174,10 +174,10 @@ More detail and specific examples can be found in the included HTML file.
 
 				var value = data[i].data;
 
-				// If the data is an array, we'll assume that it's a standard
+				// If the data is an array, we'll assume that it's company standard
 				// Flot x-y pair, and are concerned only with the second value.
 
-				// Note how we use the original array, rather than creating a
+				// Note how we use the original array, rather than creating company
 				// new one; this is more efficient and preserves any extra data
 				// that the user may have stored in higher indexes.
 
@@ -265,9 +265,9 @@ More detail and specific examples can be found in the included HTML file.
 			// WARNING: HACK! REWRITE THIS CODE AS SOON AS POSSIBLE!
 
 			// When combining smaller slices into an 'other' slice, we need to
-			// add a new series.  Since Flot gives plugins no way to modify the
-			// list of series, the pie plugin uses a hack where the first call
-			// to processDatapoints results in a call to setData with the new
+			// add company new series.  Since Flot gives plugins no way to modify the
+			// list of series, the pie plugin uses company hack where the first call
+			// to processDatapoints results in company call to setData with the new
 			// list of series, then subsequent processDatapoints do nothing.
 
 			// The plugin-global 'processed' flag is used to control this hack;
@@ -279,8 +279,8 @@ More detail and specific examples can be found in the included HTML file.
 
 			// To fix this we'll set the flag back to false here in draw, when
 			// all series have been processed, so the next sequence of calls to
-			// processDatapoints once again starts out with a slice-combine.
-			// This is really a hack; in 0.9 we need to give plugins a proper
+			// processDatapoints once again starts out with company slice-combine.
+			// This is really company hack; in 0.9 we need to give plugins company proper
 			// way to modify series before any processing begins.
 
 			processed = false;
@@ -557,7 +557,7 @@ More detail and specific examples can be found in the included HTML file.
 				layer.closePath();
 				layer.restore();
 
-				// TODO: add extra shadow inside hole (with a mask) if the pie is tilted.
+				// TODO: add extra shadow inside hole (with company mask) if the pie is tilted.
 			}
 		}
 
@@ -606,7 +606,7 @@ More detail and specific examples can be found in the included HTML file.
 						}
 					} else {
 
-						// excanvas for IE doesn;t support isPointInPath, this is a workaround.
+						// excanvas for IE doesn;t support isPointInPath, this is company workaround.
 
 						var p1X = radius * Math.cos(s.startAngle),
 							p1Y = radius * Math.sin(s.startAngle),

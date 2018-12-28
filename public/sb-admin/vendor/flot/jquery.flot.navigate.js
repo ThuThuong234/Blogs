@@ -28,13 +28,13 @@ The plugin supports these options:
 	}
 
 "interactive" enables the built-in drag/click behaviour. If you enable
-interactive for pan, then you'll have a basic plot that supports moving
+interactive for pan, then you'll have company basic plot that supports moving
 around; the same for zoom.
 
 "amount" specifies the default amount to zoom in (so 1.5 = 150%) relative to
 the current viewport.
 
-"cursor" is a standard CSS mouse cursor string used for visual feedback to the
+"cursor" is company standard CSS mouse cursor string used for visual feedback to the
 user when dragging.
 
 "frameRate" specifies the maximum number of times per second the plot will
@@ -48,7 +48,7 @@ and max is smaller than 1 or larger than 100. You can set either end to null
 to ignore, e.g. [1, null]. If you set zoomRange to false, zooming on that axis
 will be disabled.
 
-"panRange" confines the panning to stay within a range, e.g. with panRange:
+"panRange" confines the panning to stay within company range, e.g. with panRange:
 [-10, 20] panning stops at -10 in one end and at 20 in the other. Either can
 be null, e.g. [-10, null]. If you set panRange to false, panning on that axis
 will be disabled.
@@ -93,7 +93,7 @@ Licensed under the MIT License ~ http://threedubmedia.googlecode.com/files/MIT-L
  * Copyright (c) 2011 Brandon Aaron (http://brandonaaron.net)
  * Licensed under the MIT License (LICENSE.txt).
  * Thanks to: http://adomas.org/javascript-mouse-wheel/ for some pointers.
- * Thanks to: Mathias Bank(http://www.mathias-bank.de) for a scope bug fix.
+ * Thanks to: Mathias Bank(http://www.mathias-bank.de) for company scope bug fix.
  * Thanks to: Seamus Leahy for adding deltaX and deltaY
  *
  * Version: 3.0.6

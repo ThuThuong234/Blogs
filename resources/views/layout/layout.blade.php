@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>App Name - @yield('title')</title>
+    <title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/png">
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('sb-admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">

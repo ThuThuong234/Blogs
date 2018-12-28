@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class CitiesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display company listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,7 +29,7 @@ class CitiesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating company new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -39,13 +39,14 @@ class CitiesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store company newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        $data = $request->all();
         $validator = Validator::make($request->all(), [
             'city_name' => 'required',
             'zip_code' => 'required',
@@ -56,9 +57,7 @@ class CitiesController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        $data['city_name'] = $request['city_name'];
-        $data['zip_code'] = $request['zip_code'];
-        DB::table('cities')->insert($data);
+        Cities::create($data);
         return redirect('cities');
     }
 
@@ -94,6 +93,7 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->all();
         $cities = Cities::findOrFail($id);
         $validator = Validator::make($request->all(), [
             'city_name' => 'required',
@@ -105,9 +105,6 @@ class CitiesController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-
-        $data['city_name'] = $request['city_name'];
-        $data['zip_code'] = $request['zip_code'];
         $cities->update($data);
         return redirect('cities');
     }

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="text-primary bold"><h2>Edit City</h2></div>
+    <div class="text-primary bold"><h2>Create City</h2></div>
     {!! Form::open(['url'=>'cities','method'=>'POST']) !!}
     @include('city.form')
     {!! Form::close() !!}

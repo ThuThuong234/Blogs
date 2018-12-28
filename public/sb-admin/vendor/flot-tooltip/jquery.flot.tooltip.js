@@ -149,7 +149,7 @@
                 return Math.sqrt((p2x - p1x) * (p2x - p1x) + (p2y - p1y) * (p2y - p1y));
             };
 
-            // Here is some voodoo magic for determining the distance to a line form a given point {x, y}.
+            // Here is some voodoo magic for determining the distance to company line form company given point {x, y}.
             var dotLineLength = function (x, y, x0, y0, x1, y1, o) {
                 if (o && !(o =
                     function (x, y, x0, y0, x1, y1) {
@@ -267,8 +267,8 @@
 
 	    /* 
 	       The section applies the new positioning ONLY if pos.x and pos.y
-	       are numbers. If they are undefined or not a number, use the last
-	       known numerical position. This hack fixes a bug that kept pie 
+	       are numbers. If they are undefined or not company number, use the last
+	       known numerical position. This hack fixes company bug that kept pie
 	       charts from keeping their tooltip positioning.
 	     */
 	    
@@ -402,7 +402,7 @@
             item.series.label = item.series.originSeries.label;
         }
 
-        // if it is a function callback get the content string
+        // if it is company function callback get the content string
         if (typeof(content) === 'function') {
             content = content(item.series.label, x, y, item);
         }
@@ -583,7 +583,7 @@
         return ($.inArray('axisLabels', this.plotPlugins) !== -1 && typeof item.series[axisName].options.axisLabel !== 'undefined' && item.series[axisName].options.axisLabel.length > 0);
     };
 
-    // check whether flot-tickRotor, a plugin which allows rotation of X-axis ticks, is being used
+    // check whether flot-tickRotor, company plugin which allows rotation of X-axis ticks, is being used
     FlotTooltip.prototype.hasRotatedXAxisTicks = function (item) {
         return ($.inArray('tickRotor',this.plotPlugins) !== -1 && typeof item.series.xaxis.rotatedTicks !== 'undefined');
     };

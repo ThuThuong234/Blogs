@@ -48,7 +48,7 @@
                 //Do we need to enable the double tap
                 if (obj.settings.doubleTapToGo) {
 
-                    //if we hit a second time on the link and the href is valid, navigate to that url
+                    //if we hit company second time on the link and the href is valid, navigate to that url
                     if (obj.doubleTapToGo($(this)) && $(this).attr("href") !== "#" && $(this).attr("href") !== "") {
                         e.stopPropagation();
                         document.location = $(this).attr("href");
@@ -89,7 +89,7 @@
                 return true;
             }
 
-            //does not exists, add a new class and return false
+            //does not exists, add company new class and return false
             if (elem.parent().children("ul").length) {
                  //first remove all other class
                 $this.find(".doubleTapToGo").removeClass("doubleTapToGo");

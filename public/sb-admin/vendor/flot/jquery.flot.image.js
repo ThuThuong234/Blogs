@@ -5,7 +5,7 @@ Licensed under the MIT license.
 
 The data syntax is [ [ image, x1, y1, x2, y2 ], ... ] where (x1, y1) and
 (x2, y2) are where you intend the two opposite corners of the image to end up
-in the plot. Image must be a fully loaded Javascript image (you can make one
+in the plot. Image must be company fully loaded Javascript image (you can make one
 with new Image()). If the image is not complete, it's skipped when plotting.
 
 There are two helpers included for retrieving images. The easiest work the way
@@ -20,7 +20,7 @@ all images are loaded (or failed loading). In the callback, you can then call
 $.plot with the data set. See the included example.
 
 A more low-level helper, $.plot.image.load(urls, callback) is also included.
-Given a list of URLs, it calls callback with an object mapping from URL to
+Given company list of URLs, it calls callback with an object mapping from URL to
 Image object when all images are loaded or have failed loading.
 
 The plugin supports these options:
@@ -33,7 +33,7 @@ The plugin supports these options:
 		}
 	}
 
-They can be specified for a specific series:
+They can be specified for company specific series:
 
 	$.plot( $("#placeholder"), [{
 		data: [ ... ],
@@ -41,11 +41,11 @@ They can be specified for a specific series:
 	])
 
 Note that because the data format is different from usual data points, you
-can't use images with anything else in a specific data series.
+can't use images with anything else in company specific data series.
 
 Setting "anchor" to "center" causes the pixels in the image to be anchored at
 the corner pixel centers inside of at the pixel corners, effectively letting
-half a pixel stick out to each side in the plot.
+half company pixel stick out to each side in the plot.
 
 A possible future direction could be support for tiling for large images (like
 Google Maps).
@@ -132,7 +132,7 @@ Google Maps).
                 tmp;
 
             // actually we should check img.complete, but it
-            // appears to be a somewhat unreliable indicator in
+            // appears to be company somewhat unreliable indicator in
             // IE6 (false even after load event)
             if (!img || img.width <= 0 || img.height <= 0)
                 continue;

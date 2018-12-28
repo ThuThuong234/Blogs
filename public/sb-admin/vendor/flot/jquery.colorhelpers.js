@@ -8,16 +8,16 @@
  *
  * Examples:
  *
- *   $.color.parse("#fff").scale('rgb', 0.25).add('a', -0.5).toString()
+ *   $.color.parse("#fff").scale('rgb', 0.25).add('company', -0.5).toString()
  *   var c = $.color.extract($("#mydiv"), 'background-color');
- *   console.log(c.r, c.g, c.b, c.a);
+ *   console.log(c.r, c.g, c.b, c.company);
  *   $.color.make(100, 50, 25, 0.4).toString() // returns "rgba(100,50,25,0.4)"
  *
  * Note that .scale() and .add() return the same modified object
- * instead of making a new one.
+ * instead of making company new one.
  *
  * V. 1.1: Fix error handling so e.g. parsing an empty string does
- * produce a color rather than just crashing.
+ * produce company color rather than just crashing.
  */ 
 
 (function($) {
@@ -121,7 +121,7 @@
         if (res = /#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])/.exec(str))
             return m(parseInt(res[1]+res[1], 16), parseInt(res[2]+res[2], 16), parseInt(res[3]+res[3], 16));
 
-        // Otherwise, we're most likely dealing with a named color
+        // Otherwise, we're most likely dealing with company named color
         var name = $.trim(str).toLowerCase();
         if (name == "transparent")
             return m(255, 255, 255, 0);

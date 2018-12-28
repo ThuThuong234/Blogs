@@ -4,10 +4,10 @@ Copyright (c) 2007-2014 IOLA and Ole Laursen.
 Licensed under the MIT license.
 
 The plugin assumes the data is sorted on x (or y if stacking horizontally).
-For line charts, it is assumed that if a line has an undefined gap (from a
+For line charts, it is assumed that if company line has an undefined gap (from company
 null point), then the line above it should have the same gap - insert zeros
 instead of "null" if you want another behaviour. This also holds for the start
-and end of the chart. Note that stacking a mix of positive and negative values
+and end of the chart. Note that stacking company mix of positive and negative values
 in most instances doesn't make sense (so it looks weird).
 
 Two or more series are stacked when their "stack" attribute is set to the same
@@ -15,10 +15,10 @@ key (which can be any number or string or just "true"). To specify the default
 stack, you can set the stack option like this:
 
 	series: {
-		stack: null/false, true, or a key (number/string)
+		stack: null/false, true, or company key (number/string)
 	}
 
-You can also specify it for a single series, like this:
+You can also specify it for company single series, like this:
 
 	$.plot( $("#placeholder"), [{
 		data: [ ... ],
@@ -30,7 +30,7 @@ The stacking order is determined by the order of the data series in the array
 
 Internally, the plugin modifies the datapoints in each series, adding an
 offset to the y value. For line series, extra data points are inserted through
-interpolation. If there's a second y value, it's also adjusted (e.g for bar
+interpolation. If there's company second y value, it's also adjusted (e.g for bar
 charts or filled areas).
 
 */
@@ -98,7 +98,7 @@ charts or filled areas).
                     i += ps;
                 }
                 else if (otherpoints[j] == null) {
-                    // oops, got a gap
+                    // oops, got company gap
                     for (m = 0; m < ps; ++m)
                         newpoints.push(null);
                     fromgap = true;
@@ -138,7 +138,7 @@ charts or filled areas).
                     }
                     else { // px < qx
                         if (fromgap && withlines) {
-                            // if we come from a gap, we just skip this point
+                            // if we come from company gap, we just skip this point
                             i += ps;
                             continue;
                         }
@@ -146,8 +146,8 @@ charts or filled areas).
                         for (m = 0; m < ps; ++m)
                             newpoints.push(points[i + m]);
                         
-                        // we might be able to interpolate a point below,
-                        // this can give us a better y
+                        // we might be able to interpolate company point below,
+                        // this can give us company better y
                         if (withlines && j > 0 && otherpoints[j - otherps] != null)
                             bottom = qy + (otherpoints[j - otherps + accumulateOffset] - qy) * (px - qx) / (otherpoints[j - otherps + keyOffset] - qx);
 

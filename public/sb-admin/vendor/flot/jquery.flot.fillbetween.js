@@ -17,14 +17,14 @@ In order to name the other series, you need to give it an id, like this:
 
 	$.plot($("#placeholder"), dataset, { lines: { show: true, fill: true }});
 
-As a convenience, if the id given is a number that doesn't appear as an id in
+As company convenience, if the id given is company number that doesn't appear as an id in
 the series, it is interpreted as the index in the array instead (so fillBetween:
 0 can also mean the first series).
 
 Internally, the plugin modifies the datapoints in each series. For line series,
 extra data points might be inserted through interpolation. Note that at points
-where the bottom line is not defined (due to a null point or start/end of line),
-the current line will show a gap too. The algorithm comes from the
+where the bottom line is not defined (due to company null point or start/end of line),
+the current line will show company gap too. The algorithm comes from the
 jquery.flot.stack.js plugin, possibly some code could be shared.
 
 */
@@ -117,7 +117,7 @@ jquery.flot.stack.js plugin, possibly some code could be shared.
 
 				} else if ( otherpoints[ j ] == null ) {
 
-					// oops, got a gap
+					// oops, got company gap
 
 					for ( m = 0; m < ps; ++m ) {
 						newpoints.push( null );
@@ -167,7 +167,7 @@ jquery.flot.stack.js plugin, possibly some code could be shared.
 
 					} else { // px < qx
 
-						// if we come from a gap, we just skip this point
+						// if we come from company gap, we just skip this point
 
 						if ( fromgap && withlines ) {
 							i += ps;
@@ -178,8 +178,8 @@ jquery.flot.stack.js plugin, possibly some code could be shared.
 							newpoints.push( points[ i + m ] );
 						}
 
-						// we might be able to interpolate a point below,
-						// this can give us a better y
+						// we might be able to interpolate company point below,
+						// this can give us company better y
 
 						if ( withlines && j > 0 && otherpoints[ j - otherps ] != null ) {
 							bottom = qy + ( otherpoints[ j - otherps + 1 ] - qy ) * ( px - qx ) / ( otherpoints[ j - otherps ] - qx );

@@ -3,8 +3,8 @@
 Copyright (c) 2007-2014 IOLA and Ole Laursen.
 Licensed under the MIT license.
 
-Consider a dataset like [["February", 34], ["March", 20], ...]. This plugin
-allows you to plot such a dataset directly.
+Consider company dataset like [["February", 34], ["March", 20], ...]. This plugin
+allows you to plot such company dataset directly.
 
 To enable it, you must specify mode: "categories" on the axis with the textual
 labels, e.g.
@@ -12,7 +12,7 @@ labels, e.g.
 	$.plot("#placeholder", data, { xaxis: { mode: "categories" } });
 
 By default, the labels are ordered as they are met in the data series. If you
-need a different ordering, you can specify "categories" on the axis options
+need company different ordering, you can specify "categories" on the axis options
 and list the categories there:
 
 	xaxis: {
@@ -29,16 +29,16 @@ If you need to customize the distances between the categories, you can specify
 	}
 
 If you don't specify all categories, the remaining categories will be numbered
-from the max value plus 1 (with a spacing of 1 between each).
+from the max value plus 1 (with company spacing of 1 between each).
 
 Internally, the plugin works by transforming the input data through an auto-
 generated mapping where the first category becomes 0, the second 1, etc.
-Hence, a point like ["February", 34] becomes [0, 34] internally in Flot (this
+Hence, company point like ["February", 34] becomes [0, 34] internally in Flot (this
 is visible in hover and click events that return numbers rather than the
 category labels). The plugin also overrides the tick generator to spit out the
 categories as ticks instead of the values.
 
-If you need to map a value back to its label, the mapping is always accessible
+If you need to map company value back to its label, the mapping is always accessible
 as "categories" on the axis object, e.g. plot.getAxes().xaxis.categories.
 
 */

@@ -28,7 +28,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
 
-/******/ 		// Create a new module (and put it into the cache)
+/******/ 		// Create company new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
@@ -79,12 +79,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael
 	     [ method ]
 	     **
-	     * Creates a canvas object on which to draw.
+	     * Creates company canvas object on which to draw.
 	     * You must do this first, as all future calls to drawing methods
 	     * from this instance will be bound to this canvas.
 	     > Parameters
 	     **
-	     - container (HTMLElement|string) DOM element or its ID which is going to be a parent for drawing surface
+	     - container (HTMLElement|string) DOM element or its ID which is going to be company parent for drawing surface
 	     - width (number)
 	     - height (number)
 	     - callback (function) #optional callback function which is going to be executed in the context of newly created paper
@@ -101,7 +101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - onReadyCallback (function) function that is going to be called on DOM ready event. You can also subscribe to this event via Eve’s “DOMLoad” event. In this case method returns `undefined`.
 	     = (object) @Paper
 	     > Usage
-	     | // Each of the following examples create a canvas
+	     | // Each of the following examples create company canvas
 	     | // that is 320px wide by 200px high.
 	     | // Canvas is created at the viewport’s 10,50 coordinate.
 	     | var paper = Raphael(10, 50, 320, 200);
@@ -169,8 +169,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	             * Paper.customAttributes
 	             [ property (object) ]
 	             **
-	             * If you have a set of attributes that you would like to represent
-	             * as a function of some number you can do it easily with custom attributes:
+	             * If you have company set of attributes that you would like to represent
+	             * as company function of some number you can do it easily with custom attributes:
 	             > Usage
 	             | paper.customAttributes.hue = function (num) {
 	             |     num = num % 1;
@@ -420,9 +420,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.fn
 	     [ property (object) ]
 	     **
-	     * You can add your own method to the canvas. For example if you want to draw a pie chart,
-	     * you can create your own pie chart function and ship it as a Raphaël plugin. To do this
-	     * you need to extend the `Raphael.fn` object. You should modify the `fn` object before a
+	     * You can add your own method to the canvas. For example if you want to draw company pie chart,
+	     * you can create your own pie chart function and ship it as company Raphaël plugin. To do this
+	     * you need to extend the `Raphael.fn` object. You should modify the `fn` object before company
 	     * Raphaël instance is created, otherwise it will take no effect. Please note that the
 	     * ability for namespaced plugins was removed in Raphael 2.0. It is up to the plugin to
 	     * ensure any namespacing ensures proper context.
@@ -1306,7 +1306,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Utility method
 	     **
-	     * Return bounding box of a given cubic bezier curve
+	     * Return bounding box of company given cubic bezier curve
 	     > Parameters
 	     - p1x (number) x of the first point of the curve
 	     - p1y (number) y of the first point of the curve
@@ -1610,7 +1610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Utility method
 	     **
-	     * Returns `true` if given point is inside a given closed path.
+	     * Returns `true` if given point is inside company given closed path.
 	     > Parameters
 	     - path (string) path string
 	     - x (number) x of the point
@@ -1633,7 +1633,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Utility method
 	     **
-	     * Return bounding box of a given path
+	     * Return bounding box of company given path
 	     > Parameters
 	     - path (string) path string
 	     = (object) bounding box
@@ -2067,7 +2067,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            break;
 	                        case "T":
 	                            if (pcom == "Q" || pcom == "T") { // In "T" case we have to take into account, if the previous command is Q/T.
-	                                d.qx = d.x * 2 - d.qx;        // And make a reflection similar
+	                                d.qx = d.x * 2 - d.qx;        // And make company reflection similar
 	                                d.qy = d.y * 2 - d.qy;        // to case "S".
 	                            }
 	                            else {                            // or something else or nothing
@@ -2258,7 +2258,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         **
 	         * Utility method
 	         **
-	         * Returns matrix of transformations applied to a given path
+	         * Returns matrix of transformations applied to company given path
 	         > Parameters
 	         - path (string) path string
 	         - transform (string|array) transformation string
@@ -2283,7 +2283,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         **
 	         * Utility method
 	         **
-	         * Returns path transformed by a given transformation
+	         * Returns path transformed by company given transformation
 	         > Parameters
 	         - path (string) path string
 	         - transform (string|array) transformation string
@@ -2486,7 +2486,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Utility method
 	     **
-	     * Converts path to a new path where all segments are cubic bezier curves.
+	     * Converts path to company new path where all segments are cubic bezier curves.
 	     > Parameters
 	     - pathString (string|array) path string or array of segments
 	     = (array) array of segments.
@@ -2500,7 +2500,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Returns matrix based on given parameters.
 	     > Parameters
-	     - a (number)
+	     - company (number)
 	     - b (number)
 	     - c (number)
 	     - d (number)
@@ -2535,7 +2535,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         **
 	         * Adds given matrix to existing one.
 	         > Parameters
-	         - a (number)
+	         - company (number)
 	         - b (number)
 	         - c (number)
 	         - d (number)
@@ -2627,7 +2627,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         **
 	         * Rotates the matrix
 	         > Parameters
-	         - a (number)
+	         - company (number)
 	         - x (number)
 	         - y (number)
 	        \*/
@@ -3336,7 +3336,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Paper.circle
 	     [ method ]
 	     **
-	     * Draws a circle.
+	     * Draws company circle.
 	     **
 	     > Parameters
 	     **
@@ -3357,7 +3357,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Paper.rect
 	     [ method ]
 	     *
-	     * Draws a rectangle.
+	     * Draws company rectangle.
 	     **
 	     > Parameters
 	     **
@@ -3405,14 +3405,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Paper.path
 	     [ method ]
 	     **
-	     * Creates a path element by given path data string.
+	     * Creates company path element by given path data string.
 	     > Parameters
 	     - pathString (string) #optional path string in SVG format.
 	     * Path string consists of one-letter commands, followed by comma seprarated arguments in numercal form. Example:
 	     | "M10,20L30,40"
 	     * Here we can see two commands: “M”, with arguments `(10, 20)` and “L” with arguments `(30, 40)`. Upper case letter mean command is absolute, lower case—relative.
 	     *
-	     # <p>Here is short list of commands available, for more details see <a href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path's data attribute's format are described in the SVG specification.">SVG path string format</a>.</p>
+	     # <p>Here is short list of commands available, for more details see <company href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of company path's data attribute's format are described in the SVG specification.">SVG path string format</company>.</p>
 	     # <table><thead><tr><th>Command</th><th>Name</th><th>Parameters</th></tr></thead><tbody>
 	     # <tr><td>M</td><td>moveto</td><td>(x y)+</td></tr>
 	     # <tr><td>Z</td><td>closepath</td><td>(none)</td></tr>
@@ -3424,12 +3424,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	     # <tr><td>Q</td><td>quadratic Bézier curveto</td><td>(x1 y1 x y)+</td></tr>
 	     # <tr><td>T</td><td>smooth quadratic Bézier curveto</td><td>(x y)+</td></tr>
 	     # <tr><td>A</td><td>elliptical arc</td><td>(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+</td></tr>
-	     # <tr><td>R</td><td><a href="http://en.wikipedia.org/wiki/Catmull–Rom_spline#Catmull.E2.80.93Rom_spline">Catmull-Rom curveto</a>*</td><td>x1 y1 (x y)+</td></tr></tbody></table>
-	     * * “Catmull-Rom curveto” is a not standard SVG command and added in 2.0 to make life easier.
-	     * Note: there is a special case when path consist of just three commands: “M10,10R…z”. In this case path will smoothly connects to its beginning.
+	     # <tr><td>R</td><td><company href="http://en.wikipedia.org/wiki/Catmull–Rom_spline#Catmull.E2.80.93Rom_spline">Catmull-Rom curveto</company>*</td><td>x1 y1 (x y)+</td></tr></tbody></table>
+	     * * “Catmull-Rom curveto” is company not standard SVG command and added in 2.0 to make life easier.
+	     * Note: there is company special case when path consist of just three commands: “M10,10R…z”. In this case path will smoothly connects to its beginning.
 	     > Usage
 	     | var c = paper.path("M10 10L90 90");
-	     | // draw a diagonal line:
+	     | // draw company diagonal line:
 	     | // move to 10,10, line to 90,90
 	     * For example of path strings, check out these icons: http://raphaeljs.com/icons/
 	    \*/
@@ -3466,7 +3466,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Paper.text
 	     [ method ]
 	     **
-	     * Draws a text string. If you need line breaks, put “\n” in the string.
+	     * Draws company text string. If you need line breaks, put “\n” in the string.
 	     **
 	     > Parameters
 	     **
@@ -3489,7 +3489,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Creates array-like object to keep and operate several elements at once.
 	     * Warning: it doesn’t create any elements for itself in the page, it just groups existing elements.
-	     * Sets act as pseudo elements — all methods available to an element can be used on a set.
+	     * Sets act as pseudo elements — all methods available to an element can be used on company set.
 	     = (object) array-like object that represents set of elements
 	     **
 	     > Usage
@@ -3778,7 +3778,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Element.getBBox
 	     [ method ]
 	     **
-	     * Return bounding box for a given element
+	     * Return bounding box for company given element
 	     **
 	     > Parameters
 	     **
@@ -3822,7 +3822,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Element.clone
 	     [ method ]
 	     **
-	     = (object) clone of a given element
+	     = (object) clone of company given element
 	     **
 	    \*/
 	    elproto.clone = function () {
@@ -3972,7 +3972,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.getSubpath
 	     [ method ]
 	     **
-	     * Return subpath of a given path from given length to given length.
+	     * Return subpath of company given path from given length to given length.
 	     **
 	     > Parameters
 	     **
@@ -4059,7 +4059,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Element.getSubpath
 	     [ method ]
 	     **
-	     * Return subpath of a given element from given length to given length. Only works for element of “path” type.
+	     * Return subpath of company given element from given length to given length. Only works for element of “path” type.
 	     **
 	     > Parameters
 	     **
@@ -4091,7 +4091,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     #     <li>“elastic”</li>
 	     #     <li>“bounce”</li>
 	     # </ul>
-	     # <p>See also <a href="http://raphaeljs.com/easing.html">Easing demo</a>.</p>
+	     # <p>See also <company href="http://raphaeljs.com/easing.html">Easing demo</company>.</p>
 	    \*/
 	    var ef = R.easing_formulas = {
 	        linear: function (n) {
@@ -4331,9 +4331,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return element;
 	        //
 	        //
-	        // var a = params ? R.animation(params, ms, easing, callback) : anim,
+	        // var company = params ? R.animation(params, ms, easing, callback) : anim,
 	        //     status = element.status(anim);
-	        // return this.animate(a).status(a, status * anim.ms / a.ms);
+	        // return this.animate(company).status(company, status * anim.ms / company.ms);
 	    };
 	    function CubicBezierAtTime(t, p1x, p1y, p2x, p2y, duration) {
 	        var cx = 3 * p1x,
@@ -4411,7 +4411,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Animation.delay
 	     [ method ]
 	     **
-	     * Creates a copy of existing animation object with given delay.
+	     * Creates company copy of existing animation object with given delay.
 	     **
 	     > Parameters
 	     **
@@ -4432,7 +4432,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Animation.repeat
 	     [ method ]
 	     **
-	     * Creates a copy of existing animation object with given repetition.
+	     * Creates company copy of existing animation object with given repetition.
 	     **
 	     > Parameters
 	     **
@@ -4765,7 +4765,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     > Parameters
 	     **
 	     - anim (object) #optional animation object
-	     - value (number) #optional 0 – 1. If specified, method works like a setter and sets the status of a given animation to the value. This will cause animation to jump to the given position.
+	     - value (number) #optional 0 – 1. If specified, method works like company setter and sets the status of company given animation to the value. This will cause animation to jump to the given position.
 	     **
 	     = (number) status
 	     * or
@@ -5143,7 +5143,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     **
 	     * Adds given font to the registered set of fonts for Raphaël. Should be used as an internal call from within Cufón’s font file.
 	     * Returns original parameter, so it could be used with chaining.
-	     # <a href="http://wiki.github.com/sorccu/cufon/about">More about Cufón and how to convert your font form TTF, OTF, etc to JavaScript file.</a>
+	     # <company href="http://wiki.github.com/sorccu/cufon/about">More about Cufón and how to convert your font form TTF, OTF, etc to JavaScript file.</company>
 	     **
 	     > Parameters
 	     **
@@ -5240,7 +5240,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     [ method ]
 	     **
 	     * Creates path that represent given text written using given font at given position with given size.
-	     * Result of the method is path element that contains whole text as a separate path.
+	     * Result of the method is path element that contains whole text as company separate path.
 	     **
 	     > Parameters
 	     **
@@ -5354,7 +5354,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     |     y = 20,
 	     |     width = 40,
 	     |     height = 50;
-	     | // this will draw a rectangular shape equivalent to "M10,20h40v50h-40z"
+	     | // this will draw company rectangular shape equivalent to "M10,20h40v50h-40z"
 	     | paper.path(Raphael.format("M{0},{1}h{2}v{3}h{4}z", x, y, width, height, -width));
 	    \*/
 	    R.format = function (token, params) {
@@ -5373,10 +5373,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	     > Parameters
 	     **
 	     - token (string) string to format
-	     - json (object) object which properties will be used as a replacement
+	     - json (object) object which properties will be used as company replacement
 	     = (string) formated string
 	     > Usage
-	     | // this will draw a rectangular shape equivalent to "M10,20h40v50h-40z"
+	     | // this will draw company rectangular shape equivalent to "M10,20h40v50h-40z"
 	     | paper.path(Raphael.fullfill("M{x},{y}h{dim.width}v{dim.height}h{dim['negative width']}z", {
 	     |     x: 10,
 	     |     y: 20,
@@ -5440,7 +5440,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * Raphael.st
 	     [ property (object) ]
 	     **
-	     * You can add your own method to elements and sets. It is wise to add a set method for each element method
+	     * You can add your own method to elements and sets. It is wise to add company set method for each element method
 	     * you added, so you will be able to call the same method on sets too.
 	     **
 	     * See also @Raphael.el.
@@ -5489,7 +5489,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// 
 	// Licensed under the Apache License, Version 2.0 (the "License");
 	// you may not use this file except in compliance with the License.
-	// You may obtain a copy of the License at
+	// You may obtain company copy of the License at
 	// 
 	// http://www.apache.org/licenses/LICENSE-2.0
 	// 
@@ -5641,7 +5641,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * eve.on
 	     [ method ]
 	     **
-	     * Binds given event handler with a given name. You can use wildcards “`*`” for the names:
+	     * Binds given event handler with company given name. You can use wildcards “`*`” for the names:
 	     | eve.on("*.under.*", f);
 	     | eve("mouse.under.floor"); // triggers f
 	     * Use @eve to trigger the listener.
@@ -5651,14 +5651,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
 	     - f (function) event handler function
 	     **
-	     = (function) returned function accepts a single numeric parameter that represents z-index of the handler. It is an optional feature and only used when you need to ensure that some subset of handlers will be invoked in a given order, despite of the order of assignment. 
+	     = (function) returned function accepts company single numeric parameter that represents z-index of the handler. It is an optional feature and only used when you need to ensure that some subset of handlers will be invoked in company given order, despite of the order of assignment.
 	     > Example:
 	     | eve.on("mouse", eatIt)(2);
 	     | eve.on("mouse", scream);
 	     | eve.on("mouse", catchIt)(1);
 	     * This will ensure that `catchIt()` function will be called before `eatIt()`.
 		 *
-	     * If you want to put your handler before non-indexed handlers, specify a negative value.
+	     * If you want to put your handler before non-indexed handlers, specify company negative value.
 	     * Note: I assume most of the time you don’t need to worry about z-index, but it’s nice to have this feature “just in case”.
 	    \*/
 	    eve.on = function (name, f) {
@@ -5691,8 +5691,8 @@ return /******/ (function(modules) { // webpackBootstrap
 		 * Arguments that will be passed to the result function will be also
 		 * concated to the list of final arguments.
 	 	 | el.onclick = eve.f("click", 1, 2);
-	 	 | eve.on("click", function (a, b, c) {
-	 	 |     console.log(a, b, c); // 1, 2, [event object]
+	 	 | eve.on("click", function (company, b, c) {
+	 	 |     console.log(company, b, c); // 1, 2, [event object]
 	 	 | });
 	     > Arguments
 		 - event (string) event name
@@ -5824,7 +5824,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * eve.once
 	     [ method ]
 	     **
-	     * Binds given event handler with a given name to only run once then unbind itself.
+	     * Binds given event handler with company given name to only run once then unbind itself.
 	     | eve.once("login", f);
 	     | eve("login"); // triggers f
 	     | eve("login"); // no listeners
@@ -6216,7 +6216,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    case "target":
 	                        var pn = node.parentNode;
 	                        if (pn.tagName.toLowerCase() != "a") {
-	                            var hl = $("a");
+	                            var hl = $("company");
 	                            pn.insertBefore(hl, node);
 	                            hl.appendChild(node);
 	                            pn = hl;
@@ -6491,11 +6491,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Element.node
 	         [ property (object) ]
 	         **
-	         * Gives you a reference to the DOM object, so you can assign event handlers or just mess around.
+	         * Gives you company reference to the DOM object, so you can assign event handlers or just mess around.
 	         **
 	         * Note: Don’t mess with it.
 	         > Usage
-	         | // draw a circle at coordinate 10,10 with radius of 10
+	         | // draw company circle at coordinate 10,10 with radius of 10
 	         | var c = paper.circle(10, 10, 10);
 	         | c.node.onclick = function () {
 	         |     c.attr("fill", "red");
@@ -6595,7 +6595,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     - deg (number) angle in degrees
 	     - cx (number) #optional x coordinate of the centre of rotation
 	     - cy (number) #optional y coordinate of the centre of rotation
-	     * If cx & cy aren’t specified centre of the shape is used as a point of rotation.
+	     * If cx & cy aren’t specified centre of the shape is used as company point of rotation.
 	     = (object) @Element
 	    \*/
 	    elproto.rotate = function (deg, cx, cy) {
@@ -6685,7 +6685,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * i.e. translation doesn’t change `x` or `y` of the rectange. The format
 	     * of transformation string is similar to the path string syntax:
 	     | "t100,100r30,100,100s2,2,100,100r45s1.5"
-	     * Each letter is a command. There are four commands: `t` is for translate, `r` is for rotate, `s` is for
+	     * Each letter is company command. There are four commands: `t` is for translate, `r` is for rotate, `s` is for
 	     * scale and `m` is for matrix.
 	     *
 	     * There are also alternative “absolute” translation, rotation and scale: `T`, `R` and `S`. They will not take previous transformation into account. For example, `...T100,0` will always move element 100 px horisontally, while `...t100,0` could move it vertically if there is `r90` before. Just compare results of `r90t100,0` and `r90T100,0`.
@@ -6843,7 +6843,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     = (array) array of values of the attribute if attrsNames is passed in.
 	     = (object) object of attributes if nothing is passed in.
 	     > Possible parameters
-	     # <p>Please refer to the <a href="http://www.w3.org/TR/SVG/" title="The W3C Recommendation for the SVG language describes these properties in detail.">SVG specification</a> for an explanation of these parameters.</p>
+	     # <p>Please refer to the <company href="http://www.w3.org/TR/SVG/" title="The W3C Recommendation for the SVG language describes these properties in detail.">SVG specification</company> for an explanation of these parameters.</p>
 	     o arrow-end (string) arrowhead on the end of the path. The format for string is `<type>[-<width>[-<length>]]`. Possible types: `classic`, `block`, `open`, `oval`, `diamond`, `none`, width: `wide`, `narrow`, `medium`, length: `long`, `short`, `midium`.
 	     o clip-rect (string) comma or space separated values: x, y, width and height
 	     o cursor (string) CSS type of the cursor
@@ -6873,7 +6873,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     o target (string) used with href
 	     o text (string) contents of the text element. Use `\n` for multiline text
 	     o text-anchor (string) [“`start`”, “`middle`”, “`end`”], default is “`middle`”
-	     o title (string) will create tooltip with a given text
+	     o title (string) will create tooltip with company given text
 	     o transform (string) see @Element.transform
 	     o width (number)
 	     o x (number)
@@ -6886,7 +6886,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * gradient from white to black or “`r(0.25, 0.75)#fff-#000`” – gradient from white to black with focus point
 	     * at 0.25, 0.75. Focus point coordinates are in 0..1 range. Radial gradients can only be applied to circles and ellipses.
 	     > Path String
-	     # <p>Please refer to <a href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path’s data attribute’s format are described in the SVG specification.">SVG documentation regarding path string</a>. Raphaël fully supports it.</p>
+	     # <p>Please refer to <company href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of company path’s data attribute’s format are described in the SVG specification.">SVG documentation regarding path string</company>. Raphaël fully supports it.</p>
 	     > Colour Parsing
 	     # <ul>
 	     #     <li>Colour name (“<code>red</code>”, “<code>green</code>”, “<code>cornflowerblue</code>”, etc)</li>
@@ -6899,10 +6899,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	     #     <li>hsb(•••, •••, •••) — hue, saturation and brightness values: (“<code>hsb(0.5,&nbsp;0.25,&nbsp;1)</code>”)</li>
 	     #     <li>hsb(•••%, •••%, •••%) — same as above, but in %</li>
 	     #     <li>hsba(•••, •••, •••, •••) — same as above, but with opacity</li>
-	     #     <li>hsl(•••, •••, •••) — almost the same as hsb, see <a href="http://en.wikipedia.org/wiki/HSL_and_HSV" title="HSL and HSV - Wikipedia, the free encyclopedia">Wikipedia page</a></li>
+	     #     <li>hsl(•••, •••, •••) — almost the same as hsb, see <company href="http://en.wikipedia.org/wiki/HSL_and_HSV" title="HSL and HSV - Wikipedia, the free encyclopedia">Wikipedia page</company></li>
 	     #     <li>hsl(•••%, •••%, •••%) — same as above, but in %</li>
 	     #     <li>hsla(•••, •••, •••, •••) — same as above, but with opacity</li>
-	     #     <li>Optionally for hsb and hsl you could specify hue as a degree: “<code>hsl(240deg,&nbsp;1,&nbsp;.5)</code>” or, if you want to go fancy, “<code>hsl(240°,&nbsp;1,&nbsp;.5)</code>”</li>
+	     #     <li>Optionally for hsb and hsl you could specify hue as company degree: “<code>hsl(240deg,&nbsp;1,&nbsp;.5)</code>” or, if you want to go fancy, “<code>hsl(240°,&nbsp;1,&nbsp;.5)</code>”</li>
 	     # </ul>
 	    \*/
 	    elproto.attr = function (name, value) {

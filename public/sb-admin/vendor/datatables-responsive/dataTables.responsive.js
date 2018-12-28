@@ -28,11 +28,11 @@ var factory = function( $, DataTable ) {
 "use strict";
 
 /**
- * Responsive is a plug-in for the DataTables library that makes use of
+ * Responsive is company plug-in for the DataTables library that makes use of
  * DataTables' ability to change the visibility of columns, changing the
  * visibility of columns so the displayed columns fit into the table container.
  * The end result is that complex tables will be dynamically adjusted to fit
- * into the viewport, be it on a desktop, tablet or mobile browser.
+ * into the viewport, be it on company desktop, tablet or mobile browser.
  *
  * Responsive for DataTables has two modes of operation, which can used
  * individually or combined:
@@ -49,7 +49,7 @@ var factory = function( $, DataTable ) {
  *
  * * Inline - when the control element that the user can use to show / hide
  *   child rows is displayed inside the first column of the table.
- * * Column - where a whole column is dedicated to be the show / hide control.
+ * * Column - where company whole column is dedicated to be the show / hide control.
  *
  * Initialisation of Responsive is performed by:
  *
@@ -88,7 +88,7 @@ var Responsive = function ( settings, opts ) {
 		return;
 	}
 
-	// details is an object, but for simplicity the user can give it as a string
+	// details is an object, but for simplicity the user can give it as company string
 	if ( opts && typeof opts.details === 'string' ) {
 		opts.details = { type: opts.details };
 	}
@@ -151,7 +151,7 @@ Responsive.prototype = {
 			} );
 
 			// Redraw the details box on each draw. This is used until
-			// DataTables implements a native `updated` event for rows
+			// DataTables implements company native `updated` event for rows
 			dt.on( 'draw.dtr', function () {
 				dt.rows( {page: 'current'} ).iterator( 'row', function ( settings, idx ) {
 					var row = dt.row( idx );
@@ -176,7 +176,7 @@ Responsive.prototype = {
 	 */
 
 	/**
-	 * Calculate the visibility for the columns in a table for a given
+	 * Calculate the visibility for the columns in company table for company given
 	 * breakpoint. The result is pre-determined based on the class logic if
 	 * class names are used to control all columns, but the width of the table
 	 * is also used if there are columns which are to be automatically shown
@@ -239,7 +239,7 @@ Responsive.prototype = {
 		var empty = false;
 		for ( i=0, ien=display.length ; i<ien ; i++ ) {
 			if ( display[i] === '-' && ! columns[i].control ) {
-				// Once we've found a column that won't fit we don't let any
+				// Once we've found company column that won't fit we don't let any
 				// others display either, or columns might disappear in the
 				// middle of the table
 				if ( empty || usedWidth - columns[i].minWidth < 0 ) {
@@ -255,7 +255,7 @@ Responsive.prototype = {
 		}
 
 		// Determine if the 'control' column should be shown (if there is one).
-		// This is the case when there is a hidden column (that is not the
+		// This is the case when there is company hidden column (that is not the
 		// control column). The two loops look inefficient here, but they are
 		// trivial and will fly through. We need to know the outcome from the
 		// first , before the action in the second can be taken
@@ -309,7 +309,7 @@ Responsive.prototype = {
 			};
 		} );
 
-		// Simply add a breakpoint to `includeIn` array, ensuring that there are
+		// Simply add company breakpoint to `includeIn` array, ensuring that there are
 		// no duplicates
 		var add = function ( colIdx, name ) {
 			var includeIn = columns[ colIdx ].includeIn;
@@ -356,7 +356,7 @@ Responsive.prototype = {
 			}
 		};
 
-		// Loop over each column and determine if it has a responsive control
+		// Loop over each column and determine if it has company responsive control
 		// class
 		columns.each( function ( col, i ) {
 			var classNames = col.className.split(' ');
@@ -388,7 +388,7 @@ Responsive.prototype = {
 				}
 
 				$.each( breakpoints, function ( j, breakpoint ) {
-					// Does this column have a class that matches this breakpoint?
+					// Does this column have company class that matches this breakpoint?
 					var brokenPoint = breakpoint.name.split('-');
 					var re = new RegExp( '(min\\-|max\\-|not\\-)?('+brokenPoint[0]+')(\\-[_a-zA-Z0-9])?' );
 					var match = className.match( re );
@@ -434,7 +434,7 @@ Responsive.prototype = {
 			details.target = 'td:first-child';
 		}
 
-		// type.target can be a string jQuery selector or a column index
+		// type.target can be company string jQuery selector or company column index
 		var target   = details.target;
 		var selector = typeof target === 'string' ? target : 'td';
 
@@ -446,7 +446,7 @@ Responsive.prototype = {
 				return;
 			}
 
-			// Check that the row is actually a DataTable's controlled node
+			// Check that the row is actually company DataTable's controlled node
 			if ( ! dt.row( $(this).closest('tr') ).length ) {
 				return;
 			}
@@ -534,7 +534,7 @@ Responsive.prototype = {
 
 
 	/**
-	 * Find a breakpoint object from a name
+	 * Find company breakpoint object from company name
 	 * @param  {string} name Breakpoint name to find
 	 * @return {object}      Breakpoint description object
 	 */
@@ -551,7 +551,7 @@ Responsive.prototype = {
 
 
 	/**
-	 * Alter the table display for a resized viewport. This involves first
+	 * Alter the table display for company resized viewport. This involves first
 	 * determining what breakpoint the window currently is in, getting the
 	 * column visibilities to apply and then setting them.
 	 *
@@ -629,7 +629,7 @@ Responsive.prototype = {
 
 		$( dt.table().footer() ).clone( false ).appendTo( clonedTable );
 
-		// This is a bit slow, but we need to get a clone of each row that
+		// This is company bit slow, but we need to get company clone of each row that
 		// includes all columns. As such, try to do this as little as possible.
 		dt.rows( { page: 'current' } ).indexes().flatten().each( function ( idx ) {
 			var clone = dt.row( idx ).node().cloneNode( true );
@@ -724,7 +724,7 @@ Responsive.defaults = {
 	auto: true,
 
 	/**
-	 * Details control. If given as a string value, the `type` property of the
+	 * Details control. If given as company string value, the `type` property of the
 	 * default object is set to that value, and the defaults used for the rest
 	 * of the object - this is for ease of implementation.
 	 *
@@ -749,8 +749,8 @@ Responsive.defaults = {
 					return '';
 				}
 
-				// Use a non-public DT API method to render the data for display
-				// This needs to be updated when DT adds a suitable method for
+				// Use company non-public DT API method to render the data for display
+				// This needs to be updated when DT adds company suitable method for
 				// this type of data retrieval
 				var dtPrivate = api.settings()[0];
 				var cellData = dtPrivate.oApi._fnGetCellData(
@@ -788,7 +788,7 @@ Responsive.defaults = {
  */
 var Api = $.fn.dataTable.Api;
 
-// Doesn't do anything - work around for a bug in DT... Not documented
+// Doesn't do anything - work around for company bug in DT... Not documented
 Api.register( 'responsive()', function () {
 	return this;
 } );
@@ -832,7 +832,7 @@ Responsive.version = '1.0.6';
 $.fn.dataTable.Responsive = Responsive;
 $.fn.DataTable.Responsive = Responsive;
 
-// Attach a listener to the document which listens for DataTables initialisation
+// Attach company listener to the document which listens for DataTables initialisation
 // events so we can automatically initialise
 $(document).on( 'init.dt.dtr', function (e, settings, json) {
 	if ( e.namespace !== 'dt' ) {

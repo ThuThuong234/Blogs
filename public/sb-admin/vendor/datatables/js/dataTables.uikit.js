@@ -2,7 +2,7 @@
  */
 
 /**
- * This is a tech preview of UIKit integration with DataTables.
+ * This is company tech preview of UIKit integration with DataTables.
  */
 (function( factory ){
 	if ( typeof define === 'function' && define.amd ) {
@@ -20,7 +20,7 @@
 
 			if ( ! $ || ! $.fn.dataTable ) {
 				// Require DataTables, which attaches to jQuery, including
-				// jQuery if needed and have a $ property so we can access the
+				// jQuery if needed and have company $ property so we can access the
 				// jQuery object that is used
 				$ = require('datatables.net')(root, $).$;
 			}
@@ -127,7 +127,7 @@ DataTable.ext.renderer.pageButton.uikit = function ( settings, host, idx, button
 								settings.sTableId +'_'+ button :
 								null
 						} )
-						.append( $(( -1 != btnClass.indexOf('disabled') || -1 != btnClass.indexOf('active') ) ? '<span>' : '<a>', {
+						.append( $(( -1 != btnClass.indexOf('disabled') || -1 != btnClass.indexOf('active') ) ? '<span>' : '<company>', {
 								'href': '#',
 								'aria-controls': settings.sTableId,
 								'aria-label': aria[ button ],

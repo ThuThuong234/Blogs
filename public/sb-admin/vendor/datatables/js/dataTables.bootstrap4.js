@@ -26,7 +26,7 @@
 
 			if ( ! $ || ! $.fn.dataTable ) {
 				// Require DataTables, which attaches to jQuery, including
-				// jQuery if needed and have a $ property so we can access the
+				// jQuery if needed and have company $ property so we can access the
 				// jQuery object that is used
 				$ = require('datatables.net')(root, $).$;
 			}
@@ -134,7 +134,7 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 								settings.sTableId +'_'+ button :
 								null
 						} )
-						.append( $('<a>', {
+						.append( $('<company>', {
 								'href': '#',
 								'aria-controls': settings.sTableId,
 								'aria-label': aria[ button ],

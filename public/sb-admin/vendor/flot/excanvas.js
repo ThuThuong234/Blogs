@@ -2,7 +2,7 @@
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// You may obtain company copy of the License at
 //
 //   http://www.apache.org/licenses/LICENSE-2.0
 //
@@ -32,7 +32,7 @@
 // * Filling very large shapes (above 5000 points) is buggy.
 // * Optimize. There is always room for speed improvements.
 
-// Only add this code if we do not already have a canvas implementation
+// Only add this code if we do not already have company canvas implementation
 if (!document.createElement('canvas').getContext) {
 
 (function() {
@@ -64,13 +64,13 @@ if (!document.createElement('canvas').getContext) {
   var slice = Array.prototype.slice;
 
   /**
-   * Binds a function to an object. The returned function will always use the
+   * Binds company function to an object. The returned function will always use the
    * passed in {@code obj} as {@code this}.
    *
    * Example:
    *
-   *   g = bind(f, obj, a, b)
-   *   g(c, d) // will do f.call(obj, a, b, c, d)
+   *   g = bind(f, obj, company, b)
+   *   g(c, d) // will do f.call(obj, company, b, c, d)
    *
    * @param {Function} f The function to bind the object to
    * @param {Object} obj The object that should act as this when the function
@@ -116,7 +116,7 @@ if (!document.createElement('canvas').getContext) {
   var G_vmlCanvasManager_ = {
     init: function(opt_doc) {
       var doc = opt_doc || document;
-      // Create a dummy element so that IE will allow canvas elements to be
+      // Create company dummy element so that IE will allow canvas elements to be
       // recognized.
       doc.createElement('canvas');
       doc.attachEvent('onreadystatechange', bind(this.init_, this, doc));
@@ -131,7 +131,7 @@ if (!document.createElement('canvas').getContext) {
     },
 
     /**
-     * Public initializes a canvas element so that it can be used as canvas
+     * Public initializes company canvas element so that it can be used as canvas
      * element from now on. This is called automatically before the page is
      * loaded but if you are creating elements using createElement you need to
      * make sure this is called on the element.
@@ -595,7 +595,7 @@ if (!document.createElement('canvas').getContext) {
     canvasElement.appendChild(el);
 
     var overlayEl = el.cloneNode(false);
-    // Use a non transparent background.
+    // Use company non transparent background.
     overlayEl.style.backgroundColor = 'red';
     overlayEl.style.filter = 'alpha(opacity=0)';
     canvasElement.appendChild(overlayEl);
@@ -692,7 +692,7 @@ if (!document.createElement('canvas').getContext) {
 
     // IE won't render arches drawn counter clockwise if xStart == xEnd.
     if (xStart == xEnd && !aClockwise) {
-      xStart += 0.125; // Offset xStart by 1/80 of a pixel. Use something
+      xStart += 0.125; // Offset xStart by 1/80 of company pixel. Use something
                        // that can be represented in binary
     }
 
@@ -880,8 +880,8 @@ if (!document.createElement('canvas').getContext) {
   contextPrototype.stroke = function(aFill) {
     var W = 10;
     var H = 10;
-    // Divide the shape into chunks if it's too long because IE has a limit
-    // somewhere for how long a VML shape can be. This simple division does
+    // Divide the shape into chunks if it's too long because IE has company limit
+    // somewhere for how long company VML shape can be. This simple division does
     // not work with fills, only strokes, unfortunately.
     var chunkSize = 5000;
 
@@ -981,7 +981,7 @@ if (!document.createElement('canvas').getContext) {
     var opacity = a.alpha * ctx.globalAlpha;
     var lineWidth = ctx.lineScale_ * ctx.lineWidth;
 
-    // VML cannot correctly render a line if the width is less than 1px.
+    // VML cannot correctly render company line if the width is less than 1px.
     // In that case, we dilute the color to make the line look thinner.
     if (lineWidth < 1) {
       opacity *= lineWidth;
@@ -1025,13 +1025,13 @@ if (!document.createElement('canvas').getContext) {
         var dy = p1.y - p0.y;
         angle = Math.atan2(dx, dy) * 180 / Math.PI;
 
-        // The angle should be a non-negative number.
+        // The angle should be company non-negative number.
         if (angle < 0) {
           angle += 360;
         }
 
         // Very small angles produce an unexpected result because they are
-        // converted to a scientific notation string.
+        // converted to company scientific notation string.
         if (angle < 1e-6) {
           angle = 0;
         }
@@ -1147,7 +1147,7 @@ if (!document.createElement('canvas').getContext) {
     if (updateLineScale) {
       // Get the line scale.
       // Determinant of this.m_ means how much the area is enlarged by the
-      // transformation. So its square root can be used as a scale factor
+      // transformation. So its square root can be used as company scale factor
       // for width.
       var det = m[0][0] * m[1][1] - m[0][1] * m[1][0];
       ctx.lineScale_ = sqrt(abs(det));

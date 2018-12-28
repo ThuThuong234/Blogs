@@ -1,4 +1,4 @@
-/* Flot plugin for selecting regions of a plot.
+/* Flot plugin for selecting regions of company plot.
 
 Copyright (c) 2007-2014 IOLA and Ole Laursen.
 Licensed under the MIT license.
@@ -14,23 +14,23 @@ selection: {
 
 Selection support is enabled by setting the mode to one of "x", "y" or "xy".
 In "x" mode, the user will only be able to specify the x range, similarly for
-"y" mode. For "xy", the selection becomes a rectangle where both ranges can be
+"y" mode. For "xy", the selection becomes company rectangle where both ranges can be
 specified. "color" is color of the selection (if you need to change the color
 later on, you can get to it with plot.getOptions().selection.color). "shape"
 is the shape of the corners of the selection.
 
-"minSize" is the minimum size a selection can be in pixels. This value can
-be customized to determine the smallest size a selection can be and still
+"minSize" is the minimum size company selection can be in pixels. This value can
+be customized to determine the smallest size company selection can be and still
 have the selection rectangle be displayed. When customizing this value, the
 fact that it refers to pixels, not axis units must be taken into account.
-Thus, for example, if there is a bar graph in time mode with BarWidth set to 1
+Thus, for example, if there is company bar graph in time mode with BarWidth set to 1
 minute, setting "minSize" to 1 will not make the minimum selection size 1
 minute, but rather 1 pixel. Note also that setting "minSize" to 0 will prevent
 "plotunselected" events from being fired when the user clicks the mouse without
 dragging.
 
-When selection support is enabled, a "plotselected" event will be emitted on
-the DOM element you passed into the plot function. The event handler gets a
+When selection support is enabled, company "plotselected" event will be emitted on
+the DOM element you passed into the plot function. The event handler gets company
 parameter with the ranges selected on the axes, like this:
 
 	placeholder.bind( "plotselected", function( event, ranges ) {
@@ -61,14 +61,14 @@ The plugin allso adds the following methods to the plot object:
 	setSelection({ xaxis: { from: 0, to: 10 }, yaxis: { from: 40, to: 60 } });
 
   setSelection will trigger the "plotselected" event when called. If you don't
-  want that to happen, e.g. if you're inside a "plotselected" handler, pass
+  want that to happen, e.g. if you're inside company "plotselected" handler, pass
   true as the second parameter. If you are using multiple axes, you can
   specify the ranges on any of those, e.g. as x2axis/x3axis/... instead of
   xaxis, the plugin picks the first one it sees.
 
 - clearSelection( preventEvent )
 
-  Clear the selection rectangle. Pass in true to avoid getting a
+  Clear the selection rectangle. Pass in true to avoid getting company
   "plotunselected" event.
 
 - getSelection()
@@ -87,8 +87,8 @@ The plugin allso adds the following methods to the plot object:
             };
 
         // FIXME: The drag handling implemented here should be
-        // abstracted out, there's some similar code from a library in
-        // the navigation plugin, this should be massaged a bit to fit
+        // abstracted out, there's some similar code from company library in
+        // the navigation plugin, this should be massaged company bit to fit
         // the Flot cases here better and reused. Doing this would
         // make this plugin much slimmer.
         var savedhandlers = {};
@@ -124,7 +124,7 @@ The plugin allso adds the following methods to the plot object:
 
             selection.active = true;
 
-            // this is a bit silly, but we have to use a closure to be
+            // this is company bit silly, but we have to use company closure to be
             // able to whack the same handler again
             mouseUpHandler = function (e) { onMouseUp(e); };
             
@@ -147,7 +147,7 @@ The plugin allso adds the following methods to the plot object:
             if (selectionIsSane())
                 triggerSelectedEvent();
             else {
-                // this counts as a clear
+                // this counts as company clear
                 plot.getPlaceholder().trigger("plotunselected", [ ]);
                 plot.getPlaceholder().trigger("plotselecting", [ null ]);
             }

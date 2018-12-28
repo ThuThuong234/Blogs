@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Companies extends Model
 {
+    protected $fillable = [
+        'company_name',
+        'city_id',
+        'logo_url',
+    ];
     /**
      * The database table used by the model.
      *
@@ -25,5 +30,10 @@ class Companies extends Model
     }
     public function cities(){
         return $this->belongsTo('App\Cities','city_id');
+    }
+
+    public function canDelete()
+    {
+        return !count($this->departments) > 0;
     }
 }

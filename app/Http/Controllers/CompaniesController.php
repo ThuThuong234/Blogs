@@ -3,83 +3,86 @@
 namespace App\Http\Controllers;
 
 use App\Companies;
+use Validator;
 use Illuminate\Http\Request;
 
 class CompaniesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $name = $request->input('company_name');
+
+        $companies = Companies::select('companies.*');
+
+        if (!empty($name)) {
+            $companies = Companies::where('company_name', 'LIKE', '%' . $name . '%');
+        }
+        $companies = $companies->paginate(3);
+        return view('company.index', compact('companies'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('company.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
+        $data = $request->all();
+        $validator = Validator::make($request->all(), [
+            'company_name' => 'required',
+            'logo_url' => 'required',
+            'city_id' => 'required|exists:cities,id',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('companies/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        Companies::create($data);
+        return redirect('companies');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Companies  $companies
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Companies $companies)
+    public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Companies  $companies
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Companies $companies)
+
+    public function edit($id)
     {
-        //
+        $company = companies::findOrFail($id);
+
+        return view('company.edit', compact('company'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Companies  $companies
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Companies $companies)
+    public function update(Request $request, $id)
     {
-        //
+        $companies = companies::findOrFail($id);
+        $data = $request->all();
+        $validator = Validator::make($request->all(), [
+            'company_name' => 'required',
+            'logo_url' => 'required',
+            'city_id' => 'required|exists:cities,id',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('companies/'.$id.'/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $companies->update($data);
+        return redirect('companies');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Companies  $companies
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Companies $companies)
+    public function destroy($id)
     {
-        //
+        $company = companies::findOrFail($id);
+        $company->delete();
+        return redirect('companies');
     }
 }

@@ -16,7 +16,7 @@ The symbols are accessed as strings through the standard symbol options:
 (function ($) {
     function processRawData(plot, series, datapoints) {
         // we normalize the area of each symbol so it is approximately the
-        // same as a circle of the given radius
+        // same as company circle of the given radius
 
         var handlers = {
             square: function (ctx, x, y, radius, shadow) {

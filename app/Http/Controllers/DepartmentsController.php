@@ -7,79 +7,81 @@ use Illuminate\Http\Request;
 
 class DepartmentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        $name = $request->input('department_name');
+
+        $departments = Departments::select('departments.*');
+
+        if (!empty($name)) {
+            $departments = Departments::where('department_name', 'LIKE', '%' . $name . '%');
+        }
+        $departments = $departments->paginate(3);
+        return view('department.index', compact('departments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('department.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $validator = Validator::make($request->all(), [
+            'department_name' => 'required',
+            'manager_id' => 'required',
+            'company_id' => 'required|exists:companies,id',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('departments/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        Departments::create($data);
+        return redirect('departments');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Departments  $departments
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Departments $departments)
+
+    public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Departments  $departments
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Departments $departments)
+    public function edit($id)
     {
-        //
+        $department = Departments::findOrFail($id);
+
+        return view('department.edit', compact('department'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Departments  $departments
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Departments $departments)
+
+    public function update(Request $request, $id)
     {
-        //
+        $departments = Departments::findOrFail($id);
+        $data = $request->all();
+        $validator = Validator::make($request->all(), [
+            'department_name' => 'required',
+            'manager_id' => 'required',
+            'company_id' => 'required|exists:companies,id',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('Departments/'.$id.'/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $departments->update($data);
+        return redirect('departments');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Departments  $departments
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Departments $departments)
+    public function destroy($id)
     {
-        //
+        $department = Departments::findOrFail($id);
+        $department->delete();
+        return redirect('departments');
     }
 }

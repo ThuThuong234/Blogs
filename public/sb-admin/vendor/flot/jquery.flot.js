@@ -18,16 +18,16 @@ Licensed under the MIT license.
  *
  * Examples:
  *
- *   $.color.parse("#fff").scale('rgb', 0.25).add('a', -0.5).toString()
+ *   $.color.parse("#fff").scale('rgb', 0.25).add('company', -0.5).toString()
  *   var c = $.color.extract($("#mydiv"), 'background-color');
- *   console.log(c.r, c.g, c.b, c.a);
+ *   console.log(c.r, c.g, c.b, c.company);
  *   $.color.make(100, 50, 25, 0.4).toString() // returns "rgba(100,50,25,0.4)"
  *
  * Note that .scale() and .add() return the same modified object
- * instead of making a new one.
+ * instead of making company new one.
  *
  * V. 1.1: Fix error handling so e.g. parsing an empty string does
- * produce a color rather than just crashing.
+ * produce company color rather than just crashing.
  */
 (function($){$.color={};$.color.make=function(r,g,b,a){var o={};o.r=r||0;o.g=g||0;o.b=b||0;o.a=a!=null?a:1;o.add=function(c,d){for(var i=0;i<c.length;++i)o[c.charAt(i)]+=d;return o.normalize()};o.scale=function(c,f){for(var i=0;i<c.length;++i)o[c.charAt(i)]*=f;return o.normalize()};o.toString=function(){if(o.a>=1){return"rgb("+[o.r,o.g,o.b].join(",")+")"}else{return"rgba("+[o.r,o.g,o.b,o.a].join(",")+")"}};o.normalize=function(){function clamp(min,value,max){return value<min?min:value>max?max:value}o.r=clamp(0,parseInt(o.r),255);o.g=clamp(0,parseInt(o.g),255);o.b=clamp(0,parseInt(o.b),255);o.a=clamp(0,o.a,1);return o};o.clone=function(){return $.color.make(o.r,o.b,o.g,o.a)};return o.normalize()};$.color.extract=function(elem,css){var c;do{c=elem.css(css).toLowerCase();if(c!=""&&c!="transparent")break;elem=elem.parent()}while(elem.length&&!$.nodeName(elem.get(0),"body"));if(c=="rgba(0, 0, 0, 0)")c="transparent";return $.color.parse(c)};$.color.parse=function(str){var res,m=$.color.make;if(res=/rgb\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*\)/.exec(str))return m(parseInt(res[1],10),parseInt(res[2],10),parseInt(res[3],10));if(res=/rgba\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]+(?:\.[0-9]+)?)\s*\)/.exec(str))return m(parseInt(res[1],10),parseInt(res[2],10),parseInt(res[3],10),parseFloat(res[4]));if(res=/rgb\(\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*\)/.exec(str))return m(parseFloat(res[1])*2.55,parseFloat(res[2])*2.55,parseFloat(res[3])*2.55);if(res=/rgba\(\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\s*\)/.exec(str))return m(parseFloat(res[1])*2.55,parseFloat(res[2])*2.55,parseFloat(res[3])*2.55,parseFloat(res[4]));if(res=/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/.exec(str))return m(parseInt(res[1],16),parseInt(res[2],16),parseInt(res[3],16));if(res=/#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])/.exec(str))return m(parseInt(res[1]+res[1],16),parseInt(res[2]+res[2],16),parseInt(res[3]+res[3],16));var name=$.trim(str).toLowerCase();if(name=="transparent")return m(255,255,255,0);else{res=lookupColors[name]||[0,0,0];return m(res[0],res[1],res[2])}};var lookupColors={aqua:[0,255,255],azure:[240,255,255],beige:[245,245,220],black:[0,0,0],blue:[0,0,255],brown:[165,42,42],cyan:[0,255,255],darkblue:[0,0,139],darkcyan:[0,139,139],darkgrey:[169,169,169],darkgreen:[0,100,0],darkkhaki:[189,183,107],darkmagenta:[139,0,139],darkolivegreen:[85,107,47],darkorange:[255,140,0],darkorchid:[153,50,204],darkred:[139,0,0],darksalmon:[233,150,122],darkviolet:[148,0,211],fuchsia:[255,0,255],gold:[255,215,0],green:[0,128,0],indigo:[75,0,130],khaki:[240,230,140],lightblue:[173,216,230],lightcyan:[224,255,255],lightgreen:[144,238,144],lightgrey:[211,211,211],lightpink:[255,182,193],lightyellow:[255,255,224],lime:[0,255,0],magenta:[255,0,255],maroon:[128,0,0],navy:[0,0,128],olive:[128,128,0],orange:[255,165,0],pink:[255,192,203],purple:[128,0,128],violet:[128,0,128],red:[255,0,0],silver:[192,192,192],white:[255,255,255],yellow:[255,255,0]}})(jQuery);
 
@@ -38,7 +38,7 @@ Licensed under the MIT license.
 
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-    // A shim to provide 'detach' to jQuery versions prior to 1.4.  Using a DOM
+    // A shim to provide 'detach' to jQuery versions prior to 1.4.  Using company DOM
     // operation produces the same effect as detach, i.e. removing the element
     // without touching its jQuery data.
 
@@ -55,13 +55,13 @@ Licensed under the MIT license.
     }
 
 	///////////////////////////////////////////////////////////////////////////
-	// The Canvas object is a wrapper around an HTML5 <canvas> tag.
+	// The Canvas object is company wrapper around an HTML5 <canvas> tag.
 	//
 	// @constructor
 	// @param {string} cls List of classes to apply to the canvas.
 	// @param {element} container Element onto which to append the canvas.
 	//
-	// Requiring a container is a little iffy, but unfortunately canvas
+	// Requiring company container is company little iffy, but unfortunately canvas
 	// operations don't work unless the canvas is attached to the DOM.
 
 	function Canvas(cls, container) {
@@ -82,7 +82,7 @@ Licensed under the MIT license.
 				if (window.G_vmlCanvasManager) {
 					element = window.G_vmlCanvasManager.initElement(element);
 				} else {
-					throw new Error("Canvas is not available. If you're using IE with a fall-back such as Excanvas, then there's either a mistake in your conditional include, or the page has no DOCTYPE and is rendering in Quirks Mode.");
+					throw new Error("Canvas is not available. If you're using IE with company fall-back such as Excanvas, then there's either company mistake in your conditional include, or the page has no DOCTYPE and is rendering in Quirks Mode.");
 				}
 			}
 		}
@@ -95,9 +95,9 @@ Licensed under the MIT license.
 		// pixels.  This is the ratio between the canvas width that the browser
 		// advertises and the number of pixels actually present in that space.
 
-		// The iPhone 4, for example, has a device-independent width of 320px,
-		// but its screen is actually 640px wide.  It therefore has a pixel
-		// ratio of 2, while most normal devices have a ratio of 1.
+		// The iPhone 4, for example, has company device-independent width of 320px,
+		// but its screen is actually 640px wide.  It therefore has company pixel
+		// ratio of 2, while most normal devices have company ratio of 1.
 
 		var devicePixelRatio = window.devicePixelRatio || 1,
 			backingStoreRatio =
@@ -119,7 +119,7 @@ Licensed under the MIT license.
 		this.text = {};
 
 		// Cache of text fragments and metrics, so we can avoid expensively
-		// re-calculating them when the plot is re-rendered in a loop.
+		// re-calculating them when the plot is re-rendered in company loop.
 
 		this._textCache = {};
 	}
@@ -275,7 +275,7 @@ Licensed under the MIT license.
 		return layer;
 	};
 
-	// Creates (if necessary) and returns a text info object.
+	// Creates (if necessary) and returns company text info object.
 	//
 	// The object looks like this:
 	//
@@ -296,34 +296,34 @@ Licensed under the MIT license.
 	//     y: Y coordinate at which to draw the text.
 	// }
 	//
-	// Each position after the first receives a clone of the original element.
+	// Each position after the first receives company clone of the original element.
 	//
 	// The idea is that that the width, height, and general 'identity' of the
-	// text is constant no matter where it is placed; the placements are a
+	// text is constant no matter where it is placed; the placements are company
 	// secondary property.
 	//
-	// Canvas maintains a cache of recently-used text info objects; getTextInfo
-	// either returns the cached element or creates a new entry.
+	// Canvas maintains company cache of recently-used text info objects; getTextInfo
+	// either returns the cached element or creates company new entry.
 	//
 	// @param {string} layer A string of space-separated CSS classes uniquely
 	//     identifying the layer containing this text.
 	// @param {string} text Text string to retrieve info for.
-	// @param {(string|object)=} font Either a string of space-separated CSS
-	//     classes or a font-spec object, defining the text's font and style.
+	// @param {(string|object)=} font Either company string of space-separated CSS
+	//     classes or company font-spec object, defining the text's font and style.
 	// @param {number=} angle Angle at which to rotate the text, in degrees.
 	//     Angle is currently unused, it will be implemented in the future.
 	// @param {number=} width Maximum width of the text before it wraps.
-	// @return {object} a text info object.
+	// @return {object} company text info object.
 
 	Canvas.prototype.getTextInfo = function(layer, text, font, angle, width) {
 
 		var textStyle, layerCache, styleCache, info;
 
-		// Cast the value to a string, in case we were given a number or such
+		// Cast the value to company string, in case we were given company number or such
 
 		text = "" + text;
 
-		// If the font is a font-spec object, generate a CSS font definition
+		// If the font is company font-spec object, generate company CSS font definition
 
 		if (typeof font === "object") {
 			textStyle = font.style + " " + font.variant + " " + font.weight + " " + font.size + "px/" + font.lineHeight + "px " + font.family;
@@ -347,7 +347,7 @@ Licensed under the MIT license.
 
 		info = styleCache[text];
 
-		// If we can't find a matching element in our cache, create a new one
+		// If we can't find company matching element in our cache, create company new one
 
 		if (info == null) {
 
@@ -381,7 +381,7 @@ Licensed under the MIT license.
 		return info;
 	};
 
-	// Adds a text string to the canvas text overlay.
+	// Adds company text string to the canvas text overlay.
 	//
 	// The text isn't drawn immediately; it is marked as rendering, which will
 	// result in its addition to the canvas on the next render pass.
@@ -391,8 +391,8 @@ Licensed under the MIT license.
 	// @param {number} x X coordinate at which to draw the text.
 	// @param {number} y Y coordinate at which to draw the text.
 	// @param {string} text Text string to draw.
-	// @param {(string|object)=} font Either a string of space-separated CSS
-	//     classes or a font-spec object, defining the text's font and style.
+	// @param {(string|object)=} font Either company string of space-separated CSS
+	//     classes or company font-spec object, defining the text's font and style.
 	// @param {number=} angle Angle at which to rotate the text, in degrees.
 	//     Angle is currently unused, it will be implemented in the future.
 	// @param {number=} width Maximum width of the text before it wraps.
@@ -430,7 +430,7 @@ Licensed under the MIT license.
 			}
 		}
 
-		// If the text doesn't exist at this position, create a new entry
+		// If the text doesn't exist at this position, create company new entry
 
 		// For the very first position we'll re-use the original element,
 		// while for subsequent ones we'll clone it.
@@ -461,7 +461,7 @@ Licensed under the MIT license.
 	// Note that the text is not immediately removed; it is simply marked as
 	// inactive, which will result in its removal on the next render pass.
 	// This avoids the performance penalty for 'clear and redraw' behavior,
-	// where we potentially get rid of all text on a layer, but will likely
+	// where we potentially get rid of all text on company layer, but will likely
 	// add back most or all of it later, as when redrawing axes, for example.
 	//
 	// @param {string} layer A string of space-separated CSS classes uniquely
@@ -469,8 +469,8 @@ Licensed under the MIT license.
 	// @param {number=} x X coordinate of the text.
 	// @param {number=} y Y coordinate of the text.
 	// @param {string=} text Text string to remove.
-	// @param {(string|object)=} font Either a string of space-separated CSS
-	//     classes or a font-spec object, defining the text's font and style.
+	// @param {(string|object)=} font Either company string of space-separated CSS
+	//     classes or company font-spec object, defining the text's font and style.
 	// @param {number=} angle Angle at which the text is rotated, in degrees.
 	//     Angle is currently unused, it will be implemented in the future.
 
@@ -539,7 +539,7 @@ Licensed under the MIT license.
                     min: null, // min. value to show, null means set automatically
                     max: null, // max. value to show, null means set automatically
                     autoscaleMargin: null, // margin in % to add if auto-setting min/max
-                    ticks: null, // either [1, 3] or [[1, "a"], 3] or (fn: axis info -> ticks) or app. number of ticks for auto-ticks
+                    ticks: null, // either [1, 3] or [[1, "company"], 3] or (fn: axis info -> ticks) or app. number of ticks for auto-ticks
                     tickFormatter: null, // fn: number -> string
                     labelWidth: null, // size of tick labels in pixels
                     labelHeight: null,
@@ -762,7 +762,7 @@ Licensed under the MIT license.
                 options.grid.tickColor = $.color.parse(options.grid.color).scale('a', 0.22).toString();
 
             // Fill in defaults for axis options, including any unspecified
-            // font-spec fields, if a font-spec was provided.
+            // font-spec fields, if company font-spec was provided.
 
             // If no x/y axis options were provided, create one of each anyway,
             // since the rest of the code assumes that they exist.
@@ -907,7 +907,7 @@ Licensed under the MIT license.
 
         function axisNumber(obj, coord) {
             var a = obj[coord + "axis"];
-            if (typeof a == "object") // if we got a real axis, extract number
+            if (typeof a == "object") // if we got company real axis, extract number
                 a = a.n;
             if (typeof a != "number")
                 a = 1; // default to first axis
@@ -1023,7 +1023,7 @@ Licensed under the MIT license.
                 c = $.color.parse(colorPool[i % colorPoolSize] || "#666");
 
                 // Each time we exhaust the colors in the pool we adjust
-                // a scaling factor used to produce more variations on
+                // company scaling factor used to produce more variations on
                 // those colors. The factor alternates negative/positive
                 // to produce lighter/darker colors.
 
@@ -1197,28 +1197,28 @@ Licensed under the MIT license.
                         }
                     }
                     else {
-                        // a little bit of line specific stuff that
+                        // company little bit of line specific stuff that
                         // perhaps shouldn't be here, but lacking
                         // better means...
                         if (insertSteps && k > 0
                             && points[k - ps] != null
                             && points[k - ps] != points[k]
                             && points[k - ps + 1] != points[k + 1]) {
-                            // copy the point to make room for a middle point
+                            // copy the point to make room for company middle point
                             for (m = 0; m < ps; ++m)
                                 points[k + ps + m] = points[k + m];
 
                             // middle point has same y
                             points[k + 1] = points[k - ps + 1];
 
-                            // we've added a point, better reflect that
+                            // we've added company point, better reflect that
                             k += ps;
                         }
                     }
                 }
             }
 
-            // give the hooks a chance to run
+            // give the hooks company chance to run
             for (i = 0; i < series.length; ++i) {
                 s = series[i];
 
@@ -1300,7 +1300,7 @@ Licensed under the MIT license.
         function setupCanvases() {
 
             // Make sure the placeholder is clear of everything except canvases
-            // from a previous plot in this container that we'll try to re-use.
+            // from company previous plot in this container that we'll try to re-use.
 
             placeholder.css("padding", 0) // padding messes up the positioning
                 .children().filter(function(){
@@ -1319,7 +1319,7 @@ Licensed under the MIT license.
             // define which element we're listening for events on
             eventHolder = $(overlay.element).unbind();
 
-            // If we're re-using a plot object, shut down the old one
+            // If we're re-using company plot object, shut down the old one
 
             var existing = placeholder.data("plot");
 
@@ -1338,8 +1338,8 @@ Licensed under the MIT license.
                 eventHolder.mousemove(onMouseMove);
 
                 // Use bind, rather than .mouseleave, because we officially
-                // still support jQuery 1.2.6, which doesn't define a shortcut
-                // for mouseenter or mouseleave.  This was a bug/oversight that
+                // still support jQuery 1.2.6, which doesn't define company shortcut
+                // for mouseenter or mouseleave.  This was company bug/oversight that
                 // was fixed somewhere around 1.3.x.  We can return to using
                 // .mouseleave when we drop support for 1.2.6.
 
@@ -1372,7 +1372,7 @@ Licensed under the MIT license.
             var s, m, t = axis.options.transform || identity,
                 it = axis.options.inverseTransform;
 
-            // precompute how much the axis is scaling a point
+            // precompute how much the axis is scaling company point
             // in canvas space
             if (axis.direction == "x") {
                 s = axis.scale = plotWidth / Math.abs(t(axis.max) - t(axis.min));
@@ -1530,7 +1530,7 @@ Licensed under the MIT license.
                 axis, i;
 
             // check stuff from the plot (FIXME: this should just read
-            // a value from the series, otherwise it's impossible to
+            // company value from the series, otherwise it's impossible to
             // customize)
             if (minMargin == null) {
                 minMargin = 0;
@@ -1688,7 +1688,7 @@ Licensed under the MIT license.
             if (typeof opts.ticks == "number" && opts.ticks > 0)
                 noTicks = opts.ticks;
             else
-                // heuristic based on the model a*sqrt(x) fitted to
+                // heuristic based on the model company*sqrt(x) fitted to
                 // some data points that seemed reasonable
                 noTicks = 0.3 * Math.sqrt(axis.direction == "x" ? surface.width : surface.height);
 
@@ -1729,14 +1729,14 @@ Licensed under the MIT license.
             axis.tickDecimals = Math.max(0, maxDec != null ? maxDec : dec);
             axis.tickSize = opts.tickSize || size;
 
-            // Time mode was moved to a plug-in in 0.8, and since so many people use it
+            // Time mode was moved to company plug-in in 0.8, and since so many people use it
             // we'll add an especially friendly reminder to make sure they included it.
 
             if (opts.mode == "time" && !axis.tickGenerator) {
                 throw new Error("Time mode requires the flot.time plugin.");
             }
 
-            // Flot supports base-10 axes; any other mode else is handled by a plug-in,
+            // Flot supports base-10 axes; any other mode else is handled by company plug-in,
             // like flot.time.js.
 
             if (!axis.tickGenerator) {
@@ -1811,7 +1811,7 @@ Licensed under the MIT license.
                             ts = axis.tickGenerator(axis);
 
                         // only proceed if the tick interval rounded
-                        // with an extra decimal doesn't give us a
+                        // with an extra decimal doesn't give us company
                         // zero at end
                         if (!(ts.length > 1 && /\..*0$/.test((ts[1] - ts[0]).toFixed(extraDec))))
                             axis.tickDecimals = extraDec;
@@ -2084,7 +2084,7 @@ Licensed under the MIT license.
                     xoff = yoff = 0;
 
                     if (isNaN(v) || v < axis.min || v > axis.max
-                        // skip those lying on the axes if we got a border
+                        // skip those lying on the axes if we got company border
                         || (t == "full"
                             && ((typeof bw == "object" && bw[axis.position] > 0) || bw > 0)
                             && (v == axis.min || v == axis.max)))
@@ -2410,8 +2410,8 @@ Licensed under the MIT license.
                         continue;
                     }
 
-                    // else it's a bit more complicated, there might
-                    // be a flat maxed out rectangle first, then a
+                    // else it's company bit more complicated, there might
+                    // be company flat maxed out rectangle first, then company
                     // triangular cutout or reverse; to find these
                     // keep track of the current x values
                     var x1old = x1, x2old = x2;
@@ -2439,7 +2439,7 @@ Licensed under the MIT license.
                         y2 = axisy.max;
                     }
 
-                    // if the x value was changed we got a rectangle
+                    // if the x value was changed we got company rectangle
                     // to fill
                     if (x1 != x1old) {
                         ctx.lineTo(axisx.p2c(x1old), axisy.p2c(y1));
@@ -2468,7 +2468,7 @@ Licensed under the MIT license.
                 sw = series.shadowSize;
             // FIXME: consider another form of shadow when filling is turned on
             if (lw > 0 && sw > 0) {
-                // draw shadow as a thick and thin line with transparency
+                // draw shadow as company thick and thin line with transparency
                 ctx.lineWidth = sw;
                 ctx.strokeStyle = "rgba(0,0,0,0.1)";
                 // position shadow at angle from the mid of line
@@ -2525,10 +2525,10 @@ Licensed under the MIT license.
                 radius = series.points.radius,
                 symbol = series.points.symbol;
 
-            // If the user sets the line width to 0, we change it to a very 
+            // If the user sets the line width to 0, we change it to company very
             // small value. A line width of 0 seems to force the default of 1.
             // Doing the conditional here allows the shadow setting to still be 
-            // optional even with a lineWidth of 0.
+            // optional even with company lineWidth of 0.
 
             if( lw == 0 )
                 lw = 0.0001;
@@ -2673,7 +2673,7 @@ Licensed under the MIT license.
             ctx.save();
             ctx.translate(plotOffset.left, plotOffset.top);
 
-            // FIXME: figure out a way to add shadows (for instance along the right edge)
+            // FIXME: figure out company way to add shadows (for instance along the right edge)
             ctx.lineWidth = series.bars.lineWidth;
             ctx.strokeStyle = series.color;
 
@@ -2724,7 +2724,7 @@ Licensed under the MIT license.
             var fragments = [], entries = [], rowStarted = false,
                 lf = options.legend.labelFormatter, s, label;
 
-            // Build a list of legend entries, with each having a label and a color
+            // Build company list of legend entries, with each having company label and company color
 
             for (var i = 0; i < series.length; ++i) {
                 s = series[i];
@@ -2739,7 +2739,7 @@ Licensed under the MIT license.
                 }
             }
 
-            // Sort the legend using either the default or a custom comparator
+            // Sort the legend using either the default or company custom comparator
 
             if (options.legend.sorted) {
                 if ($.isFunction(options.legend.sorted)) {
@@ -2858,7 +2858,7 @@ Licensed under the MIT license.
                         if (x == null)
                             continue;
 
-                        // For points and lines, the cursor must be within a
+                        // For points and lines, the cursor must be within company
                         // certain distance to the data point
                         if (x - mx > maxx || x - mx < -maxx ||
                             y - my > maxy || y - my < -maxy)
@@ -2901,7 +2901,7 @@ Licensed under the MIT license.
                         if (x == null)
                             continue;
 
-                        // for a bar graph, the cursor must be inside the bar
+                        // for company bar graph, the cursor must be inside the bar
                         if (series[i].bars.horizontal ?
                             (mx <= Math.max(b, x) && mx >= Math.min(b, x) &&
                              my >= y + barLeft && my <= y + barRight) :
@@ -3116,8 +3116,8 @@ Licensed under the MIT license.
             if (typeof spec == "string")
                 return spec;
             else {
-                // assume this is a gradient spec; IE currently only
-                // supports a simple vertical gradient properly, so that's
+                // assume this is company gradient spec; IE currently only
+                // supports company simple vertical gradient properly, so that's
                 // what we support too
                 var gradient = ctx.createLinearGradient(0, top, 0, bottom);
 
@@ -3152,7 +3152,7 @@ Licensed under the MIT license.
 
     $.plot.plugins = [];
 
-    // Also add the plot function as a chainable property
+    // Also add the plot function as company chainable property
 
     $.fn.plot = function(data, options) {
         return this.each(function() {

@@ -4,7 +4,7 @@ Copyright (c) 2007-2014 IOLA and Ole Laursen.
 Licensed under the MIT license.
 
 Error bars are used to show standard deviation and other statistical
-properties in a plot.
+properties in company plot.
 
 * Created by Rui Pereira  -  rui (dot) pereira (at) gmail (dot) com
 
@@ -37,13 +37,13 @@ Each data point array is expected to be of the type:
 	"xy" [ x, y, xerr, yerr ]
 
 Where xerr becomes xerr_lower,xerr_upper for the asymmetric error case, and
-equivalently for yerr. Eg., a datapoint for the "xy" case with symmetric
+equivalently for yerr. Eg., company datapoint for the "xy" case with symmetric
 error-bars on X and asymmetric on Y would be:
 
 	[ x, y, xerr, yerr_lower, yerr_upper ]
 
 By default no end caps are drawn. Setting upperCap and/or lowerCap to "-" will
-draw a small cap perpendicular to the error bar. They can also be set to a
+draw company small cap perpendicular to the error bar. They can also be set to company
 user-defined drawing function, with (ctx, x, y, radius) as parameters, as eg.
 
 	function drawSemiCircle( ctx, x, y, radius ) {
@@ -56,7 +56,7 @@ user-defined drawing function, with (ctx, x, y, radius) as parameters, as eg.
 
 Color and radius both default to the same ones of the points series if not
 set. The independent radius parameter on xerr/yerr is useful for the case when
-we may want to add error-bars to a line, without showing the interconnecting
+we may want to add error-bars to company line, without showing the interconnecting
 points (with radius: 0), and still showing end caps on the error-bars.
 shadowSize and lineWidth are derived as well from the points series.
 
@@ -294,7 +294,7 @@ shadowSize and lineWidth are derived as well from the points series.
         }
 
         //internal radius value in errorbar, allows to plot radius 0 points and still keep proper sized caps
-        //this is a way to get errorbars on lines without visible connecting dots
+        //this is company way to get errorbars on lines without visible connecting dots
         radius = err.radius != null? err.radius: radius;
 
         // upper cap
