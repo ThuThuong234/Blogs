@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="text-primary bold"><h2>Create Deparment</h2></div>
-    {!! Form::open(['url'=>'departments','method'=>'POST']) !!}
-    @include('department.form')
+    {!! Form::open(['url'=>'companies','method'=>'POST']) !!}
+    @include('company.form')
     {!! Form::close() !!}
 @endsection

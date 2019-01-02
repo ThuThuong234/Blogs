@@ -11,6 +11,6 @@
 @section('content')
     <div class="text-primary bold"><h2>Edit Company</h2></div>
 {!! Form::model($company, ['method'=> 'PATCH','url' => [ 'companies', $company->id]]) !!}
-    @include('department.form',['submitText'=> 'Update'])
+    @include('company.form',['submitText'=> 'Update'])
 {!! Form::close() !!}
 @endsection

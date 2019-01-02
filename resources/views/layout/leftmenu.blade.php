@@ -13,10 +13,13 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="tables.html"><i class="fa fa-table fa-fw"></i> City</a>
+                <a href="{{url('cities')}}"><i class="fa fa-table fa-fw"></i> Cities</a>
             </li>
             <li>
-                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Company</a>
+                <a href="{{url('companies')}}"><i class="fa fa-edit fa-fw"></i> Companies</a>
+            </li>
+            <li>
+                <a href="{{url('departments')}}"><i class="fa fa-edit fa-fw"></i> Departments</a>
             </li>
         </ul>
     </div>

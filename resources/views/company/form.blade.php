@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row" style="margin-bottom: 25px">
-        <div class="col-sm-2 mt-4 mb-4">{!! Form::label('lbCompanyName', 'Company Name:') !!} </div>
+        <div class="col-sm-2 mt-4 mb-4">{!! Form::label('lbCompanyName', 'City Name:') !!} </div>
         <div class="col-sm-10 mt-4 mb-4">
             {!! Form::select('city_id',\App\Cities::pluck('city_name','id'),isset($company)?$company->cities->pluck('id'):null,['class'=> 'form-control','id'=>'companyName']) !!}
         </div>

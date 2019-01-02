@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title', 'companies')
+@section('title', 'Department')
 
 @section('sidebar')
     @parent
@@ -9,8 +9,8 @@
 @endsection
 
 @section('content')
-    <div class="text-primary bold"><h2>Create Company</h2></div>
-    {!! Form::open(['url'=>'companies','method'=>'POST']) !!}
+    <div class="text-primary bold"><h2>Create Department</h2></div>
+    {!! Form::open(['url'=>'departments','method'=>'POST']) !!}
     @include('department.form')
     {!! Form::close() !!}
 @endsection

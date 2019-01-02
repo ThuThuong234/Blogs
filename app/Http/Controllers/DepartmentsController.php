@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Departments;
+use Validator;
 use Illuminate\Http\Request;
 
 class DepartmentsController extends Controller
@@ -31,7 +32,7 @@ class DepartmentsController extends Controller
         $data = $request->all();
         $validator = Validator::make($request->all(), [
             'department_name' => 'required',
-            'manager_id' => 'required',
+            'manage_id' => 'required',
             'company_id' => 'required|exists:companies,id',
         ]);
 
@@ -64,12 +65,12 @@ class DepartmentsController extends Controller
         $data = $request->all();
         $validator = Validator::make($request->all(), [
             'department_name' => 'required',
-            'manager_id' => 'required',
+            'manage_id' => 'required',
             'company_id' => 'required|exists:companies,id',
         ]);
 
         if ($validator->fails()) {
-            return redirect('Departments/'.$id.'/edit')
+            return redirect('departments/'.$id.'/edit')
                 ->withErrors($validator)
                 ->withInput();
         }
